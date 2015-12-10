@@ -3,6 +3,9 @@ package model;
 
 /**
  * Created by scavenius on 12/1/15.
+ * Class storing a specific combination of a film, time, date and theater. Each show's theater object keeps track of
+ * which seats are reserved for that specific show.
+ *
  */
 public class Show {
 

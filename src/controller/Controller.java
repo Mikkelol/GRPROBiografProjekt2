@@ -6,19 +6,18 @@ import java.util.ArrayList;
 
 /**
  * Created by Mikkel on 12/1/2015.
+ *
  */
 public class Controller {
 
-    private Reservations reservations;
-    //private ArrayList<Reservation> reservations;
-    private Shows shows;
-    //private ArrayList<Show> shows;
+private ArrayList<Reservation> reservations;
+private ArrayList<Show> shows;
+
 
     public Controller(){
 
-        this.reservations = new Reservations();
-        this.shows = new Shows();
-        //this.shows = new ArrayList<Show>();
+        this.reservations = new ArrayList<Reservation>();
+        this.shows = new ArrayList<Show>();
 
     }
 
@@ -34,7 +33,7 @@ public class Controller {
 
     public Reservation findReservation(Customer customer, Show show) {
 
-        for (Reservation r: reservations.getReservationList()) {
+        for (Reservation r: reservations) {
 
             if(customer.equals(r.getCustomer()) && show.equals(r.getShow())) {
 
@@ -48,10 +47,10 @@ public class Controller {
         return null;
 
     }
-
+// method for adding to and removing from a reservation.
     public void changeReservation(Customer customer, Show show, ArrayList<int[]> seats) {
 
-        for (Reservation r: reservations.getReservationList()) {
+        for (Reservation r: reservations) {
 
             if(customer.equals(r.getCustomer()) && show.equals(r.getShow())) {
 
@@ -68,7 +67,8 @@ public class Controller {
         }
 
     }
-
+/*method for reserving seats. The ArrayList of seats will be the seats selected by the clerk when she presses the reserve
+   button. */
     private void notifyTheater(Theater theater, ArrayList<int[]> seats) {
 
         for (int[] seat: seats) {
