@@ -1,38 +1,36 @@
 package view;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Olaleo on 01-12-2015.
+ * Created by Olaleo on 10-12-2015.
  */
-public class ShowView extends JComponent
-{
-    JButton chooseShow;
-    view.MainView mainView;
+public class ShowView extends JComponent{
+    private MainView mainView;
+    private JButton findReservationButton;
+    private JScrollBar scrollBar1;
+    private JPanel contentPane;
 
-    public ShowView(view.MainView m)
+
+    public ShowView(MainView mainView)
     {
-        mainView = m;
-
+        this.mainView = mainView;
+        initialize();
 
     }
 
     public void initialize()
     {
-        chooseShow = new JButton("Show");
-        chooseShow.setSize(100,100);
-        chooseShow.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                mainView.changeView();
-            }
+        findReservationButton.addActionListener(e -> {
+            mainView.changeViewToFindReservationView();
         });
-        add(chooseShow);
     }
 
 
-
+    public JPanel getContentPane()
+    {
+        return contentPane;
+    }
 }
