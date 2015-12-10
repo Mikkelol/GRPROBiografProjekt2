@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by scavenius on 12/8/15.
+ * Created by Scavenius on 12/8/15.
  *
  * most of the code was taken from https://learnit.itu.dk/pluginfile.php/142213/mod_resource/content/0/MySQL.java
  *
