@@ -26,11 +26,7 @@ public class Controller {
 
         Theater theater = reservation.getShow().getTheater();
 
-        for (int[] seat: reservation.getSeats() ) {
-
-            theater.flipReservation(seat[0], seat[1]);
-
-        }
+        notifyTheater(theater, reservation.getSeats());
 
         reservations.add(reservation);
 
@@ -61,21 +57,11 @@ public class Controller {
 
                 Theater theater = r.getShow().getTheater();
 
-                // reverts the prior resaervations
-                for (int[] seat: r.getSeats() ) {
-
-                    theater.flipReservation(seat[0], seat[1]);
-
-                }
+                notifyTheater(theater, r.getSeats());
 
                 r.changeReservation(seats);
 
-                // notifies theater of the new reservations
-                for (int[] seat: r.getSeats() ) {
-
-                    theater.flipReservation(seat[0], seat[1]);
-
-                }
+                notifyTheater(theater, seats);
 
             }
 
@@ -83,6 +69,14 @@ public class Controller {
 
     }
 
+    private void notifyTheater(Theater theater, ArrayList<int[]> seats) {
 
+        for (int[] seat: seats) {
+
+            theater.flipReservation(seat[0], seat[1]);
+
+        }
+
+    }
 
 }
