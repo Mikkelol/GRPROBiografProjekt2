@@ -13,7 +13,7 @@ import java.util.HashMap;
 /**
  * Created by scavenius on 12/8/15.
  *
- * most of the code was taken from TODO find link to where we "borrowed" this
+ * most of the code was taken from https://learnit.itu.dk/pluginfile.php/142213/mod_resource/content/0/MySQL.java
  *
  */
 public final class Instanciator {
@@ -27,6 +27,8 @@ public final class Instanciator {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://mysql.itu.dk/" + DB;
 
+    //method that creates a hashmap of theater identifiers and theaters from the data in the "theaters" table in the
+    //database
     public static HashMap<String, Theater> createTheaterMap() {
 
         Connection connection = null;
@@ -61,7 +63,7 @@ public final class Instanciator {
 
         return returnMap;
     }
-
+    // creates a list of shows useing the data from the "shows" table in the database and the createTheaterMap method
     public static ArrayList<Show> createShowlist() {
 
         Connection connection = null;
