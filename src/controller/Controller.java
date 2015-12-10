@@ -17,7 +17,7 @@ private ArrayList<Show> shows;
     public Controller(){
 
         this.reservations = new ArrayList<Reservation>();
-        this.shows = new ArrayList<Show>();
+        this.shows = Instanciator.createShowlist();
 
     }
 
