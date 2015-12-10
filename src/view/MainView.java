@@ -2,8 +2,6 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Olaleo on 01-12-2015.
@@ -12,6 +10,7 @@ public class MainView extends JFrame
 {
     private ReserveView reserveView;
     private ShowView showView;
+    private FindReservationView findReservationView;
 
     public MainView(String title) throws HeadlessException
     {
@@ -22,23 +21,38 @@ public class MainView extends JFrame
 
     public void initialize()
     {
-        reserveView = new ReserveView();
+        reserveView = new ReserveView(this);
         showView = new ShowView(this);
+        findReservationView = new FindReservationView(this);
         setSize( 600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setContentPane(showView);
+        setContentPane(showView.getContentPane());
         setVisible(true);
-        //reserveView.addMainView(this);
-        //reserveView.changeFilm("test");
     }
 
-    public void changeView()
+    public void changeViewToShowView()
     {
-
+        setContentPane(showView.getContentPane());
         pack();
         setVisible(true);
-
     }
+
+    public void changeViewToReserveView()
+    {
+        setContentPane(reserveView.getContentPane());
+        pack();
+        setVisible(true);
+    }
+
+    public void changeViewToFindReservationView()
+    {
+        setContentPane(findReservationView.getContentPane());
+        pack();
+        setVisible(true);
+    }
+
+
+
 
 
 

@@ -17,7 +17,7 @@ public class Controller {
     public Controller(){
 
         this.reservations = new ArrayList<Reservation>();
-        this.shows = new ArrayList<Show>();
+        this.shows = Instanciator.createShowlist();
 
     }
     //sets the seats to the given show as reserved and stores the reservation in the list of reservations.
