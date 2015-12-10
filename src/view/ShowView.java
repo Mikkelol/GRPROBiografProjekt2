@@ -1,8 +1,6 @@
 package view;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Olaleo on 10-12-2015.
@@ -26,6 +24,14 @@ public class ShowView extends JComponent{
         findReservationButton.addActionListener(e -> {
             mainView.changeViewToFindReservationView();
         });
+
+    }
+
+    public void drawShows()
+    {
+        mainView.getShows();
+
+        // dato show tidspunkt
     }
 
 

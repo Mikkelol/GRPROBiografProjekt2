@@ -1,5 +1,7 @@
 package view;
 
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,10 +13,12 @@ public class MainView extends JFrame
     private ReserveView reserveView;
     private ShowView showView;
     private FindReservationView findReservationView;
+    private Controller controller;
 
-    public MainView(String title) throws HeadlessException
+    public MainView(String title, Controller controller) throws HeadlessException
     {
         super(title);
+        this.controller = controller;
         initialize();
     }
 
@@ -49,6 +53,11 @@ public class MainView extends JFrame
         setContentPane(findReservationView.getContentPane());
         pack();
         setVisible(true);
+    }
+
+    public void getShows()
+    {
+        controller.getShows();
     }
 
 

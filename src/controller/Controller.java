@@ -14,6 +14,7 @@ private ArrayList<Reservation> reservations;
 private ArrayList<Show> shows;
 
 
+
     public Controller(){
 
         this.reservations = new ArrayList<Reservation>();
@@ -79,4 +80,8 @@ private ArrayList<Show> shows;
 
     }
 
+    public ArrayList<Show> getShows()
+    {
+        return shows;
+    }
 }
