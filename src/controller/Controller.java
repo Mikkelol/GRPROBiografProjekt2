@@ -2,6 +2,8 @@ package controller;
 
 import model.*;
 
+import java.util.ArrayList;
+
 /**
  * Created by Mikkel on 12/1/2015.
  */
@@ -21,6 +23,14 @@ public class Controller {
     }
 
     public void addreservation(Reservation reservation) {
+
+        Theater theater = reservation.getShow().getTheater();
+
+        for (int[] seat: reservation.getSeats() ) {
+
+            theater.flipReservation(seat[0], seat[1]);
+
+        }
 
         reservations.add(reservation);
 
@@ -43,13 +53,29 @@ public class Controller {
 
     }
 
-    public void changeReservation(Customer customer, Show show, int[][] seats) {
+    public void changeReservation(Customer customer, Show show, ArrayList<int[]> seats) {
 
         for (Reservation r: reservations.getReservationList()) {
 
             if(customer.equals(r.getCustomer()) && show.equals(r.getShow())) {
 
+                Theater theater = r.getShow().getTheater();
+
+                // reverts the prior resaervations
+                for (int[] seat: r.getSeats() ) {
+
+                    theater.flipReservation(seat[0], seat[1]);
+
+                }
+
                 r.changeReservation(seats);
+
+                // notifies theater of the new reservations
+                for (int[] seat: r.getSeats() ) {
+
+                    theater.flipReservation(seat[0], seat[1]);
+
+                }
 
             }
 

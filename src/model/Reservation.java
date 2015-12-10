@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Created by scavenius on 12/1/15.
  */
@@ -7,9 +9,9 @@ public class Reservation {
 
     private Show show;
     private Customer customer;
-    private int[][] seats;
+    private ArrayList<int[]>seats;
 
-    public Reservation(Show show, Customer customer, int[][] seats) {
+    public Reservation(Show show, Customer customer, ArrayList<int[]> seats) {
 
         this.customer = customer;
         this.seats = seats;
@@ -18,7 +20,7 @@ public class Reservation {
     }
 
     //Essentially a setter
-    public void changeReservation (int[][] seats) {
+    public void changeReservation (ArrayList<int[]> seats) {
 
         this.seats = seats;
 
@@ -28,7 +30,7 @@ public class Reservation {
         return customer;
     }
 
-    public int[][] getSeats() {
+    public ArrayList<int[]> getSeats() {
         return seats;
     }
 
