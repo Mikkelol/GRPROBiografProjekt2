@@ -1,5 +1,7 @@
 package controller;
 
+import exceptions.TheaterSizeException;
+
 import model.Show;
 import model.Theater;
 
@@ -49,14 +51,18 @@ public final class Instanciator {
                 int seats = rs.getInt("seats");
                 int rows = rs.getInt("rows");
                 String identifier = rs.getString("theater_identifier");
-
-                returnMap.put(identifier, new Theater(identifier, seats, rows));
-
+                if(seats>0 && rows>0) {
+                    returnMap.put(identifier, new Theater(identifier, seats, rows));
+                }
+                else {throw new TheaterSizeException();}
             }
 
             rs.close();
             connection.close();
-        } catch(Exception e) {
+        } catch(TheaterSizeException e){
+            System.out.println("Database corrupt: theater sizes are not positive");
+        }
+        catch(Exception e) {
             //Handle errors for Class.forName
             e.printStackTrace();
         }
