@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by scavenius on 12/1/15.
- */
+ * class that keeps track of what seats are reserved by a specific customer
+ * */
 public class Reservation {
 
     private Show show;

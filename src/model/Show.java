@@ -11,7 +11,6 @@ public class Show {
 
     private Theater theater;
     private String film;
-    //for info on LocalDateTime https://docs.oracle.com/javase/tutorial/datetime/iso/datetime.html and https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html
     private String date;
     private int time;
 
