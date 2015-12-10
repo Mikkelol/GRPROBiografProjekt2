@@ -38,7 +38,7 @@ public final class Instanciator {
             connection = DriverManager.getConnection(DB_URL, USER, PASS); // STEP 3: Open a connection
             statement = connection.createStatement(); // STEP 4: Execute a query
 
-            String sql = "SELECT * FROM theaters ORDER BY theaters , theater_identifier ASC LIMIT 0 , 30";
+            String sql = "SELECT * FROM theaters ORDER BY theater_identifier ASC LIMIT 0 , 30";
             ResultSet rs = statement.executeQuery(sql);
             //STEP 5: Extract data from result set
 
@@ -75,7 +75,7 @@ public final class Instanciator {
             connection = DriverManager.getConnection(DB_URL, USER, PASS); // STEP 3: Open a connection
             statement = connection.createStatement(); // STEP 4: Execute a query
 
-            String sql = "SELECT * FROM shows ORDER BY shows , date ASC LIMIT 0 , 30";
+            String sql = "SELECT * FROM shows ORDER BY date ASC LIMIT 0 , 30";
             ResultSet rs = statement.executeQuery(sql);
 
             //STEP 5: Extract data from result set
@@ -84,7 +84,7 @@ public final class Instanciator {
                 int time = rs.getInt("time");
                 String date = rs.getString("date");
                 String film = rs.getString("Film");
-                String theater = rs.getString("theater_identifier");
+                String theater = rs.getString("Theater");
 
                 returnArray.add(new Show(theaterMap.get(theater), film, date, time));
 
