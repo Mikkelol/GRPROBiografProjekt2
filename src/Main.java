@@ -6,6 +6,6 @@ import view.*;
 public class Main {
     public static void main(String[] args)
     {
-        new MainView("test", new Controller());
+        new MainView("Ticket reservation machine", new Controller());
     }
 }

@@ -1,6 +1,9 @@
 package view;
 
+import model.Show;
+
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 10-12-2015.
@@ -10,12 +13,14 @@ public class ShowView extends JComponent{
     private JButton findReservationButton;
     private JScrollBar scrollBar1;
     private JPanel contentPane;
+    private ShowInformation showInformation1;
 
 
     public ShowView(MainView mainView)
     {
         this.mainView = mainView;
         initialize();
+        showInformation1 = new ShowInformation(mainView);
 
     }
 
@@ -29,7 +34,13 @@ public class ShowView extends JComponent{
 
     public void drawShows()
     {
-        mainView.getShows();
+
+        ArrayList<Show> shows= mainView.getShows();
+
+        JLabel nameJLabel = new JLabel(shows.get(0).getFilm());
+        nameJLabel.setLocation(100,100);
+        nameJLabel.setSize(100,100);
+        nameJLabel.setVisible(true);
 
         // dato show tidspunkt
     }
@@ -38,5 +49,14 @@ public class ShowView extends JComponent{
     public JPanel getContentPane()
     {
         return contentPane;
+    }
+
+    private void createUIComponents()
+    {
+        //showInformation = new ShowInformation(mainView);
+
+
+
+        // TODO: place custom component creation code here
     }
 }

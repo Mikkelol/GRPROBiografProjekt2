@@ -1,9 +1,11 @@
 package view;
 
 import controller.Controller;
+import model.Show;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 01-12-2015.
@@ -55,9 +57,9 @@ public class MainView extends JFrame
         setVisible(true);
     }
 
-    public void getShows()
+    public ArrayList<Show> getShows()
     {
-        controller.getShows();
+        return controller.getShows();
     }
 
 
