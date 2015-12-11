@@ -20,7 +20,7 @@ public class ShowView extends JComponent{
     {
         this.mainView = mainView;
         initialize();
-        showInformation1 = new ShowInformation(mainView);
+        //showInformation1 = new ShowInformation(mainView);
 
     }
 
@@ -53,7 +53,9 @@ public class ShowView extends JComponent{
 
     private void createUIComponents()
     {
-        //showInformation = new ShowInformation(mainView);
+        showInformation1 = new ShowInformation(mainView);
+        showInformation1.setVisible(true);
+
 
 
 
