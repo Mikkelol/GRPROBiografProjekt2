@@ -15,6 +15,7 @@ public class Theater {
     public Theater(String identifier, int maxNumberOfColumns, int maxNumberOfRows) {
 
         this.seats = new boolean[maxNumberOfColumns][maxNumberOfRows];
+        this.identifier = identifier;
 
     }
 
@@ -28,6 +29,11 @@ public class Theater {
 
     public boolean[][] getSeats() {
         return seats;
+    }
+
+    public String getIdentifier()
+    {
+        return identifier;
     }
 
     public boolean getSpecificSeat(int column, int row) {

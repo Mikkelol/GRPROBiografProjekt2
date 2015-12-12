@@ -26,7 +26,7 @@
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="true">
-            <minimum-size width="200" height="500"/>
+            <minimum-size width="500" height="700"/>
           </grid>
         </constraints>
         <properties/>
