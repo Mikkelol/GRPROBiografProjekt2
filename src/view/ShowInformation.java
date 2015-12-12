@@ -30,19 +30,16 @@ public class ShowInformation extends JComponent{
         button.setSize(100,20);
         button.setLocation(300, y - 15);
         button.setVisible(true);
-        //button.paintImmediately(200,y,20,20);
+        button.addActionListener(e -> {
+            mainView.changeViewToReserveView(show);
+        });
         add(button);
-        //button.paintImmediately(200,y,20,20);
-
-        //show.getFilm().length();
-        //150
 
     }
 
     public void drawDate(Graphics g, String date, int x, int y)
     {
         g.drawString( date, x, y);
-
     }
 
     public void drawShows(ArrayList<Show> shows,Graphics g)
@@ -65,17 +62,6 @@ public class ShowInformation extends JComponent{
             drawShow( shows.get(i), g, 15, 10 + 20 * q);
             q++;
         }
-
-
-
-
-        /*for (int i = 0; i < shows.size(); i++)
-        {
-            drawShow(shows.get(i), g, 10, 10 + 15 * i);
-        }*/
-
-
-
     }
 
 

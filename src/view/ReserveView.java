@@ -20,6 +20,8 @@ public class ReserveView extends JComponent {
         initialize();
     }
 
+
+
     public void initialize()
     {
         cancelButton.addActionListener(e -> {
