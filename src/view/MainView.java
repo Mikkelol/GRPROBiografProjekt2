@@ -33,6 +33,7 @@ public class MainView extends JFrame
         setSize( 600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(showView.getContentPane());
+        pack();
         setVisible(true);
     }
 

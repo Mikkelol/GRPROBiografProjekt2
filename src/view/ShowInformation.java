@@ -17,11 +17,6 @@ public class ShowInformation extends JComponent{
     public ShowInformation(MainView mainView)
     {
         this.mainView = mainView;
-        test = new JLabel("lel");
-        test.setSize(100,10);
-        test.setVisible(true);
-        test.setLocation(10,10);
-        add(test);
         ArrayList<Show> shows= mainView.getShows();
         //JLabel nameJLabel = new JLabel(shows.get(0).getFilm());
         //System.out.println(mainView.getShows().get(0).getFilm());
@@ -29,40 +24,46 @@ public class ShowInformation extends JComponent{
 
     public void drawShow(Show show, Graphics g,int x, int y)
     {
-        //g.drawString(show.getFilm(),x,y);
-        //System.out.println(show.getFilm());
-        JLabel jLabel = new JLabel(show.getFilm());
 
-        jLabel.setLocation(100,100);
 
-        jLabel.setSize(100,10);
+        g.drawString(show.getFilm(),x,y);
 
-        jLabel.setVisible(true);
+    }
 
-        jLabel.paint(g);
-
+    public void drawDate(Graphics g, String date, int x, int y)
+    {
+        g.drawString( date, x, y);
     }
 
     public void drawShows(ArrayList<Show> shows,Graphics g)
     {
+        int q = 0;
+
         for (Show s: shows)
+        {
+            if (s.equals(shows.get(0)))
+            {
+                drawDate( g, s.getDate(), 10, 10 + 15 * q);
+            }
+        }
 
-        drawShow(s, g, 100, 100);
+
+
+
+        /*for (int i = 0; i < shows.size(); i++)
+        {
+            drawShow(shows.get(i), g, 10, 10 + 15 * i);
+        }*/
+
+
 
     }
 
-    @Override
-    protected void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        //drawShows(mainView.getShows(),g);
-    }
 
     @Override
     public void paint(Graphics g)
     {
         super.paint(g);
-        test.paint(g);
         drawShows(mainView.getShows(),g);
     }
 }

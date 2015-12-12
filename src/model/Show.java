@@ -18,6 +18,7 @@ public class Show {
         this.theater = theater;
         this.film = film;
         this.time = time;
+        this.date = date;
     }
 
     public Theater getTheater() {
