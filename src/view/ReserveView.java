@@ -1,5 +1,7 @@
 package view;
 
+import model.Show;
+
 import javax.swing.*;
 
 /**
@@ -13,11 +15,23 @@ public class ReserveView extends JComponent {
     private JButton saveReservationButton;
     private JButton findReservationButton;
     private JButton cancelButton;
+    private JLabel showNameJLabel;
+    private JLabel showTimeJLabel;
+    private JLabel showTheaterJLabel;
+    private SeatMatrix seatMatrix1;
 
     public ReserveView(MainView m)
     {
         mainView = m;
         initialize();
+    }
+
+    public void changeShow(Show show)
+    {
+        showNameJLabel.setText(show.getFilm());
+        showTimeJLabel.setText(Integer.toString(show.getTime()));
+        showTheaterJLabel.setText(show.getTheater().getIdentifier());
+
     }
 
 
@@ -32,5 +46,10 @@ public class ReserveView extends JComponent {
     public JPanel getContentPane()
     {
         return contentPane;
+    }
+
+    private void createUIComponents()
+    {
+        // TODO: place custom component creation code here
     }
 }

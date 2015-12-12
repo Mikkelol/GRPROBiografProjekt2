@@ -46,6 +46,7 @@ public class MainView extends JFrame
 
     public void changeViewToReserveView(Show show)
     {
+        reserveView.changeShow(show);
         setContentPane(reserveView.getContentPane());
         pack();
         setVisible(true);
