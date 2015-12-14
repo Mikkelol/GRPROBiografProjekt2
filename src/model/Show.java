@@ -70,11 +70,11 @@ public class Show {
 
                 return false;
 
-            } else if (Integer.parseInt(dateArray[1])<1 || !(dateArray[1].matches("[0-1][0-9]]"))) {
+            } else if (Integer.parseInt(dateArray[1])<1 || !(dateArray[1].matches("[0-1][0-9]"))) {
 
                 return false;
 
-            } else if (Integer.parseInt(dateArray[2])<1 || !(dateArray[2].matches("[0-3][0-9]]"))) {
+            } else if (Integer.parseInt(dateArray[2])<1 || !(dateArray[2].matches("[0-3][0-9]"))) {
 
                 return false;
 
@@ -84,7 +84,7 @@ public class Show {
 
         String stringTime = String.valueOf(time);
 
-        if (time < 0 || !(stringTime.length() == 4)|| !(stringTime.matches("[0-2][0-4][0-5][0-9]"))) {
+        if (time < 0 || !(stringTime.length() == 4)|| !(stringTime.matches("[0-2][0-9][0-5][0-9]"))) {
 
             return false;
 

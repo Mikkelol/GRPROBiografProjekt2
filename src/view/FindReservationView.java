@@ -1,5 +1,6 @@
 package view;
 
+import exceptions.CustomerException;
 import model.Customer;
 import model.Reservation;
 
@@ -24,7 +25,11 @@ public class FindReservationView {
     {
         this.mainView = mainView;
         findReservationButton.addActionListener(e -> {
-            findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
+            try {
+                findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
+            } catch (CustomerException e1) {
+                e1.printStackTrace();
+            }
             mainView.changeViewToFindReservationView();
         });
         cancelButton.addActionListener(e -> {
