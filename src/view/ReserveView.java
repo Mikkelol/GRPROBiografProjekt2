@@ -46,11 +46,14 @@ public class ReserveView extends JComponent {
             mainView.changeViewToShowView();
         });
         saveReservationButton.addActionListener(e -> {
+            if (seatMatrix1.getSelected().size()<0)
+            {
             String name = nameField.getText();
             String number = numberField.getText();
             ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
             mainView.saveReservation(currentShow, name, number, selectedSeats);
-
+            mainView.changeViewToShowView();
+            }
         });
     }
 
