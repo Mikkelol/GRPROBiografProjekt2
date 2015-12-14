@@ -4,6 +4,7 @@ import model.Show;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 10-12-2015.
@@ -44,10 +45,10 @@ public class ReserveView extends JComponent {
         saveReservationButton.addActionListener(e -> {
             String name = nameField.getText();
             String number = numberField.getText();
+            ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
+            mainView.saveReservation(currentShow, name, number, selectedSeats);
 
-            mainView.saveReservation()
-
-        })
+        });
     }
 
     public JPanel getContentPane() {
@@ -80,8 +81,10 @@ public class ReserveView extends JComponent {
         showTheaterJLabel.setText("ShowTheater");
         contentPane.add(showTheaterJLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         nameField = new JTextField();
+        nameField.setText("Name");
         contentPane.add(nameField, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         numberField = new JTextField();
+        numberField.setText("Number");
         contentPane.add(numberField, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         saveReservationButton = new JButton();
         saveReservationButton.setText("Save reservation");
