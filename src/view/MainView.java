@@ -64,7 +64,10 @@ public class MainView extends JFrame
         return controller.getShows();
     }
 
-
+    public void saveReservation (Show s, String name, String number,ArrayList<int[]> selectedSeats)
+    {
+    controller.saveReservation(s,name,number,selectedSeats);
+    }
 
 
 

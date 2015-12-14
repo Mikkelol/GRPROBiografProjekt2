@@ -73,6 +73,12 @@ public class Controller {
         }
 
     }
+    public void saveReservation(Show s, String name, String number, ArrayList<int[]> Seats)
+    {
+        Customer c = new Customer(name,number);
+        Reservation r = new Reservation(s,c,Seats);
+        addreservation(r);
+    }
 
     public ArrayList<Show> getShows()
     {
