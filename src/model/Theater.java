@@ -1,5 +1,7 @@
 package model;
 
+import java.util.IllegalFormatCodePointException;
+
 /**
  * Created by Tobias Scavenius on 29-11-2015.
  Class representing a specific theater in the cinema. It stores a String which works as its identifier and a boolean
@@ -15,11 +17,20 @@ public class Theater {
     private int numberOfRows;
 
     public Theater(String identifier, int maxNumberOfColumns, int maxNumberOfRows) {
-        numberOfRows = maxNumberOfRows;
-        numberOfSeats = maxNumberOfColumns;
+
+        if (assertProperSize(maxNumberOfColumns, maxNumberOfRows)) {
+
+            numberOfRows = maxNumberOfRows;
+            numberOfSeats = maxNumberOfColumns;
+
+        } else {
+
+            throw new IllegalArgumentException("Your column and rows cannot be less than one");
+
+        }
+
         this.seats = new boolean[numberOfSeats][numberOfRows];
         this.identifier = identifier;
-
 
     }
     /*makes a theater by cloning an other one. used for keeping track of reserved seats for specific shows even though
@@ -52,7 +63,7 @@ public class Theater {
     public boolean getSpecificSeat(int column, int row) {
         return seats[column][row];
     }
-//main method of reserving or freeing up a seat
+    //main method of reserving or freeing up a seat
     public void flipReservation(int column, int row) {
         seats[column][row] = !seats[column][row];
     }
@@ -60,4 +71,11 @@ public class Theater {
     public int getNumberOFSeats() {return numberOfSeats;}
 
     public int getNumberOfRows() {return numberOfRows;}
+
+    private boolean assertProperSize(int column, int row) {
+
+        return column > 0 && row > 0;
+
+    }
+
 }

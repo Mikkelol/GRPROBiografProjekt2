@@ -1,5 +1,6 @@
 package view;
 
+import model.Reservation;
 import model.Show;
 
 import javax.swing.*;
@@ -45,6 +46,7 @@ public class ReserveView extends JComponent {
         cancelButton.addActionListener(e -> {
             mainView.changeViewToShowView();
         });
+
         saveReservationButton.addActionListener(e -> {
             if (seatMatrix1.getSelected().size()<0)
             {
@@ -54,6 +56,13 @@ public class ReserveView extends JComponent {
             mainView.saveReservation(currentShow, name, number, selectedSeats);
             mainView.changeViewToShowView();
             }
+        });
+        findReservationButton.addActionListener(e -> {
+            String name = nameField.getText();
+            String number = numberField.getText();
+            Show s = currentShow;
+            Reservation r = mainView.findReservation(name, number, s);
+            seatMatrix1.changeShow(s, r);
         });
     }
 
