@@ -16,25 +16,19 @@ public class Show {
     private String date;
     private int time;
 
-    public Show(Theater theater, String film, String date, int time) {
+    public Show(Theater theater, String film, String date, int time) throws IllegalTimeAndDateFormatException {
 
-        try {
+        this.theater = theater;
+        this.film = film;
 
-            this.theater = theater;
-            this.film = film;
+        if (assertProperTimeAndDateFormat(date, time)) {
 
-            if (assertProperTimeAndDateFormat(date, time)) {
+            this.time = time;
+            this.date = date.replaceAll("\\s", "");
 
-                this.time = time;
-                this.date = date.replaceAll("\\s", "");
+        } else {
 
-            } else {
-
-                throw new IllegalTimeAndDateFormatException();
-
-            }
-
-        } catch (IllegalTimeAndDateFormatException e) {
+            throw new IllegalTimeAndDateFormatException();
 
         }
 
