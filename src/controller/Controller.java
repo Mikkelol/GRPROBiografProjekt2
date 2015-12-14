@@ -50,6 +50,8 @@ public class Controller {
     }
     // method that overwrites a costumer's old reservation with the new one.
     public void changeReservation(Customer customer, Show show, ArrayList<int[]> seats) {
+
+
         //finds the reservation
         Reservation r = findReservation(customer, show);
         // Finds the theater
@@ -62,6 +64,8 @@ public class Controller {
         notifyTheater(theater, seats);
 
     }
+    
+
     /*method for reserving seats. The ArrayList of seats will be the seats selected by the clerk when she presses the reserve
        button. */
     private void notifyTheater(Theater theater, ArrayList<int[]> seats) {

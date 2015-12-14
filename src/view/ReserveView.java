@@ -42,11 +42,14 @@ public class ReserveView extends JComponent {
         cancelButton.addActionListener(e -> {
             mainView.changeViewToShowView();
         });
+
         saveReservationButton.addActionListener(e -> {
             String name = nameField.getText();
             String number = numberField.getText();
             ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
             mainView.saveReservation(currentShow, name, number, selectedSeats);
+        });
+        findReservationButton.addActionListener(e -> {
 
         });
     }
