@@ -83,7 +83,7 @@ public final class Instanciator {
             connection = DriverManager.getConnection(DB_URL, USER, PASS); // STEP 3: Open a connection
             statement = connection.createStatement(); // STEP 4: Execute a query
 
-            String sql = "SELECT * FROM shows ORDER BY date ASC LIMIT 0 , 30";
+            String sql = "SELECT * FROM shows ORDER BY date ASC , time ASC ,Theater ASC LIMIT 0 , 30";
             ResultSet rs = statement.executeQuery(sql);
 
             //STEP 5: Extract data from result set
