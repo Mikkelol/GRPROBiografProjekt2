@@ -1,6 +1,7 @@
 package controller;
 
 import exceptions.CustomerException;
+import exceptions.IllegalArrayListException;
 import model.*;
 
 import java.util.ArrayList;
@@ -102,7 +103,7 @@ public class Controller {
             Reservation r = new Reservation(s, c, Seats);
             addReservation(r);
         }
-        catch(CustomerException e){
+        catch(CustomerException | IllegalArrayListException r){
             System.out.println("invalid input");
         }
     }
