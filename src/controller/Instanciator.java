@@ -94,7 +94,7 @@ public final class Instanciator {
                 String film = rs.getString("Film");
                 String theater = rs.getString("Theater");
 
-                returnArray.add(new Show(theaterMap.get(theater), film, date, time));
+                returnArray.add(new Show(new Theater(theaterMap.get(theater)), film, date, time));
 
             }
             rs.close();

@@ -3,6 +3,8 @@ package view;
 import model.Show;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 10-12-2015.
@@ -10,8 +12,8 @@ import javax.swing.*;
 public class ReserveView extends JComponent {
     private MainView mainView;
     private JPanel contentPane;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField nameField;
+    private JTextField numberField;
     private JButton saveReservationButton;
     private JButton findReservationButton;
     private JButton cancelButton;
@@ -19,10 +21,12 @@ public class ReserveView extends JComponent {
     private JLabel showTimeJLabel;
     private JLabel showTheaterJLabel;
     private SeatMatrix seatMatrix1;
+    private Show currentShow;
 
     public ReserveView(MainView m)
     {
         mainView = m;
+        $$$setupUI$$$();
         initialize();
     }
 
@@ -32,6 +36,7 @@ public class ReserveView extends JComponent {
         showNameJLabel.setText(show.getFilm());
         showTimeJLabel.setText(Integer.toString(show.getTime()));
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
+        currentShow = show;
     }
 
 
@@ -40,6 +45,13 @@ public class ReserveView extends JComponent {
     {
         cancelButton.addActionListener(e -> {
             mainView.changeViewToShowView();
+        });
+        saveReservationButton.addActionListener(e -> {
+            String name = nameField.getText();
+            String number = numberField.getText();
+            ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
+            mainView.saveReservation(currentShow, name, number, selectedSeats);
+
         });
     }
 
