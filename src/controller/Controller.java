@@ -106,6 +106,9 @@ public class Controller {
         catch(CustomerException | IllegalArrayListException r){
             System.out.println("invalid input");
         }
+        catch(IllegalArrayListException e){
+            System.out.println("ArrayList corrupt");
+        }
     }
 
     public ArrayList<Show> getShows()
