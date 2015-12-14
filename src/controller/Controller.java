@@ -48,6 +48,22 @@ public class Controller {
         return null;
 
     }
+
+    public ArrayList<Reservation> getReservationList(Customer customer)
+    {
+        ArrayList<Reservation> returnList = new ArrayList<Reservation>();
+
+        for (Reservation r: reservations)
+        {
+            if (customer.equals(r.getCustomer()))
+            {
+                returnList.add(returnList.size(),r);
+            }
+        }
+
+        return returnList;
+    }
+
     // method that overwrites a costumer's old reservation with the new one.
     public void changeReservation(Customer customer, Show show, ArrayList<int[]> seats) {
         //finds the reservation
