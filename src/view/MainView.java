@@ -1,6 +1,9 @@
 package view;
 
 import controller.Controller;
+import exceptions.CustomerException;
+import model.Customer;
+import model.Reservation;
 import model.Show;
 
 import javax.swing.*;
@@ -70,8 +73,17 @@ public class MainView extends JFrame
     }
 
 
+    public Reservation findReservation(String name, String number, Show s) {
 
+        try {Customer c = new Customer(name,number);
+        return controller.findReservation(c,s);
+        }
 
+        catch(CustomerException e){
+            System.out.println("Customer not found");
+            return null;
+        }
+    }
 }
 
 

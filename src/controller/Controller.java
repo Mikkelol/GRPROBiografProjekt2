@@ -1,5 +1,6 @@
 package controller;
 
+import exceptions.CustomerException;
 import model.*;
 
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class Controller {
         notifyTheater(theater, seats);
 
     }
-    
+
 
     /*method for reserving seats. The ArrayList of seats will be the seats selected by the clerk when she presses the reserve
        button. */
@@ -79,9 +80,15 @@ public class Controller {
     }
     public void saveReservation(Show s, String name, String number, ArrayList<int[]> Seats)
     {
-        Customer c = new Customer(name,number);
-        Reservation r = new Reservation(s,c,Seats);
-        addReservation(r);
+        try {
+            Customer c = new Customer(name, number);
+
+            Reservation r = new Reservation(s, c, Seats);
+            addReservation(r);
+        }
+        catch(CustomerException e){
+            System.out.println("invalid input");
+        }
     }
 
     public ArrayList<Show> getShows()
