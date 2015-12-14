@@ -26,7 +26,6 @@ public class ReserveView extends JComponent {
     public ReserveView(MainView m)
     {
         mainView = m;
-        $$$setupUI$$$();
         initialize();
     }
 

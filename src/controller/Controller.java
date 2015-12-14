@@ -55,7 +55,7 @@ public class Controller {
 
         for (Reservation r: reservations)
         {
-            if (customer.equals(r.getCustomer()))
+            if (customer.getName().equals(r.getCustomer().getName()) && customer.getNumber().equals(r.getCustomer().getNumber()))
             {
                 returnList.add(returnList.size(),r);
             }

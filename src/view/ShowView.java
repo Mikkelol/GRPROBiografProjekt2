@@ -19,9 +19,7 @@ public class ShowView extends JComponent {
 
     public ShowView(MainView mainView) {
         this.mainView = mainView;
-        $$$setupUI$$$();
         initialize();
-        //showInformation1 = new ShowInformation(mainView);
 
     }
 
@@ -34,17 +32,6 @@ public class ShowView extends JComponent {
 
     }
 
-    public void drawShows() {
-
-        ArrayList<Show> shows = mainView.getShows();
-
-        JLabel nameJLabel = new JLabel(shows.get(0).getFilm());
-        nameJLabel.setLocation(100, 100);
-        nameJLabel.setSize(100, 100);
-        nameJLabel.setVisible(true);
-
-        // dato show tidspunkt
-    }
 
 
     public JPanel getContentPane() {
