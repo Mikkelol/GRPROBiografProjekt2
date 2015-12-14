@@ -19,6 +19,13 @@ public class Theater {
 
     }
 
+    public Theater(Theater t) {
+
+        this.identifier = t.getIdentifier();
+        this.seats = t.getSeats();
+
+    }
+
     public void setReservationTrue(int column, int row) {
         seats[column][row] = true;
     }
