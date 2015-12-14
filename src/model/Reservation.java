@@ -14,9 +14,7 @@ public class Reservation {
     private Customer customer;
     private ArrayList<int[]>seats;
 
-    public Reservation(Show show, Customer customer, ArrayList<int[]> seats) {
-
-        try {
+    public Reservation(Show show, Customer customer, ArrayList<int[]> seats) throws IllegalArrayListException {
 
             this.customer = customer;
             this.show = show;
@@ -30,12 +28,6 @@ public class Reservation {
                 throw new IllegalArrayListException();
 
             }
-
-        }catch (IllegalArrayListException e) {
-
-            e.printStackTrace();
-
-        }
 
     }
 

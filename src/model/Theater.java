@@ -18,29 +18,19 @@ public class Theater {
 
     public Theater(String identifier, int maxNumberOfColumns, int maxNumberOfRows) {
 
-        try {
+        if (assertProperSize(maxNumberOfColumns, maxNumberOfRows)) {
 
-            if (assertProperSize(maxNumberOfColumns, maxNumberOfRows)) {
+            numberOfRows = maxNumberOfRows;
+            numberOfSeats = maxNumberOfColumns;
 
-                numberOfRows = maxNumberOfRows;
-                numberOfSeats = maxNumberOfColumns;
+        } else {
 
-            } else {
-
-                throw new IllegalArgumentException("Your column and rows cannot be less than one");
-
-            }
-
-        } catch (IllegalArgumentException e) {
-
-            System.out.println(e.getMessage());
+            throw new IllegalArgumentException("Your column and rows cannot be less than one");
 
         }
 
-
         this.seats = new boolean[numberOfSeats][numberOfRows];
         this.identifier = identifier;
-
 
     }
     /*makes a theater by cloning an other one. used for keeping track of reserved seats for specific shows even though
