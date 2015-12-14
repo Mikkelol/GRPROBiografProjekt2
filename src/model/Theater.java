@@ -11,21 +11,27 @@ public class Theater {
 
     private String identifier;
     private boolean[][] seats;
+    private int numberOfSeats;
+    private int numberOfRows;
 
     public Theater(String identifier, int maxNumberOfColumns, int maxNumberOfRows) {
-
-        this.seats = new boolean[maxNumberOfColumns][maxNumberOfRows];
+        numberOfRows = maxNumberOfRows;
+        numberOfSeats = maxNumberOfColumns;
+        this.seats = new boolean[numberOfSeats][numberOfRows];
         this.identifier = identifier;
 
-    }
 
+    }
+    /*makes a theater by cloning an other one. used for keeping track of reserved seats for specific shows even though
+    they are in the same theater*/
     public Theater(Theater t) {
 
         this.identifier = t.getIdentifier();
-        this.seats = t.getSeats();
+        numberOfRows = t.getNumberOfRows();
+        numberOfSeats = t.getNumberOFSeats();
+        this.seats = new boolean[numberOfSeats][numberOfRows];
 
     }
-
     public void setReservationTrue(int column, int row) {
         seats[column][row] = true;
     }
@@ -51,4 +57,7 @@ public class Theater {
         seats[column][row] = !seats[column][row];
     }
 
+    public int getNumberOFSeats() {return numberOfSeats;}
+
+    public int getNumberOfRows() {return numberOfRows;}
 }

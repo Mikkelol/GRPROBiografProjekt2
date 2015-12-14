@@ -26,7 +26,7 @@ public class ControllerTest {
         Reservation r = new Reservation(s,c,seats);
 
         //call the method
-        controller.addreservation(r);
+        controller.addReservation(r);
         //checking if the seats get reserved
         assertTrue(r.getShow().getTheater().getSpecificSeat(2,2));
         assertTrue(r.getShow().getTheater().getSpecificSeat(2,1));
@@ -49,7 +49,7 @@ public class ControllerTest {
         seats.add(new int[]{2,4});
         Reservation r = new Reservation(s,c,seats);
         // call method and chekc if the reservation added is the same as the one returned by the method
-        controller.addreservation(r);
+        controller.addReservation(r);
         assertEquals(r, controller.findReservation(c, s));
     }
 
@@ -65,7 +65,7 @@ public class ControllerTest {
         seats.add(new int[]{2,4});
         Reservation r = new Reservation(s,c,seats);
 
-        controller.addreservation(r);
+        controller.addReservation(r);
         //are the seats still reserved if you use change reservation and do not change anything
         controller.changeReservation(c,s,seats);
         assertTrue(r.getShow().getTheater().getSpecificSeat(2,2));
