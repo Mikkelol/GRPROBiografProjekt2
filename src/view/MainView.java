@@ -80,7 +80,8 @@ public class MainView extends JFrame
 
     public Reservation findReservation(String name, String number, Show s) {
 
-        try {Customer c = new Customer(name,number);
+        try {
+            Customer c = new Customer(name,number);
         return controller.findReservation(c,s);
         }
 

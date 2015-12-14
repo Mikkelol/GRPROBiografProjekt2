@@ -48,7 +48,7 @@ public class ReserveView extends JComponent {
         });
 
         saveReservationButton.addActionListener(e -> {
-            if (seatMatrix1.getSelected().size()<0)
+            if (seatMatrix1.getSelected().size()>0)
             {
             String name = nameField.getText();
             String number = numberField.getText();
@@ -63,6 +63,7 @@ public class ReserveView extends JComponent {
             Show s = currentShow;
             Reservation r = mainView.findReservation(name, number, s);
             seatMatrix1.changeShow(s, r);
+
         });
     }
 
