@@ -74,7 +74,7 @@ public class Show {
 
             if (Integer.parseInt(dateArray[0])<0) {
 
-                return false
+                return false;
 
             } else if (Integer.parseInt(dateArray[1])<1 || !(dateArray[1].matches("[0-1][0-9]]"))) {
 
