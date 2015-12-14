@@ -32,7 +32,6 @@ public class ReserveView extends JComponent {
         showNameJLabel.setText(show.getFilm());
         showTimeJLabel.setText(Integer.toString(show.getTime()));
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
-        saveReservationButton.removeAll();
     }
 
 

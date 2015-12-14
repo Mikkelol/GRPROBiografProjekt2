@@ -1,6 +1,8 @@
 package view;
 
 import controller.Controller;
+import model.Customer;
+import model.Reservation;
 import model.Show;
 
 import javax.swing.*;
@@ -57,6 +59,11 @@ public class MainView extends JFrame
         setContentPane(findReservationView.getContentPane());
         pack();
         setVisible(true);
+    }
+
+    public ArrayList<Reservation> getReservationList(Customer customer)
+    {
+        return controller.getReservationList(customer);
     }
 
     public ArrayList<Show> getShows()
