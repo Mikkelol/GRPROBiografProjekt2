@@ -59,7 +59,7 @@ public class SeatMatrix extends JComponent {
     {
         if (seat.isSelected())
         {
-            selected.add(selected.size(),seat.getPlace());
+            selected.add(seat.getPlace());
         }
         else if (!seat.isSelected())
         {
@@ -72,6 +72,10 @@ public class SeatMatrix extends JComponent {
                     selected.remove(k);
                     isFound = true;
                 }
+                if(k<selected.size()-1) {
+                    k++;
+                }
+                else{break;}
             }
         }
     }
@@ -83,6 +87,7 @@ public class SeatMatrix extends JComponent {
 
     public void changeShow(Show show)
     {
+        selected = new ArrayList<>();
         drawSeats(show.getTheater());
     }
 }

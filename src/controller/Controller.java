@@ -22,7 +22,7 @@ public class Controller {
 
     }
     //sets the seats to the given show as reserved and stores the reservation in the list of reservations.
-    public void addreservation(Reservation reservation) {
+    public void addReservation(Reservation reservation) {
 
         Theater theater = reservation.getShow().getTheater();
 
@@ -77,7 +77,7 @@ public class Controller {
     {
         Customer c = new Customer(name,number);
         Reservation r = new Reservation(s,c,Seats);
-        addreservation(r);
+        addReservation(r);
     }
 
     public ArrayList<Show> getShows()
