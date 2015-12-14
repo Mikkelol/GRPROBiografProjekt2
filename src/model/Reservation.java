@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.IllegalArrayListException;
+
 import java.util.ArrayList;
 
 /**
@@ -14,9 +16,26 @@ public class Reservation {
 
     public Reservation(Show show, Customer customer, ArrayList<int[]> seats) {
 
-        this.customer = customer;
-        this.seats = seats;
-        this.show = show;
+        try {
+
+            this.customer = customer;
+            this.show = show;
+
+            if (assertCorrectArrayList(seats)) {
+
+                this.seats = seats;
+
+            } else {
+
+                throw new IllegalArrayListException();
+
+            }
+
+        }catch (IllegalArrayListException e) {
+
+            e.printStackTrace();
+
+        }
 
     }
 
@@ -38,6 +57,24 @@ public class Reservation {
     public Show getShow() {
 
         return show;
+
+    }
+
+    private boolean assertCorrectArrayList(ArrayList<int[]> seats) {
+
+        boolean lengthCheck = true;
+
+        for (int[] i: seats) {
+
+            if (!(i.length == 2)) {
+
+                lengthCheck = false;
+
+            }
+
+        }
+
+        return seats.size()>0 && lengthCheck;
 
     }
 
