@@ -44,7 +44,7 @@ public class ReserveView extends JComponent {
         saveReservationButton.addActionListener(e -> {
             String name = nameField.getText();
             String number = numberField.getText();
-            
+
             mainView.saveReservation()
 
         })
