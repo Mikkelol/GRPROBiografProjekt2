@@ -39,15 +39,15 @@ public class SeatButton extends JButton {
 
         if (!isReserved && !isSelected) {
 
-            graphics.setColor(freeColor);
+            setBackground(freeColor);
 
         } else if (isReserved) {
 
-            graphics.setColor(reservedColor);
+            setBackground(reservedColor);
 
         } else {
 
-            graphics.setColor(selectedColor);
+            setBackground(selectedColor);
 
         }
 
