@@ -11,7 +11,9 @@ import java.awt.*;
  */
 public class SeatMatrix extends JComponent {
 
-    private SeatButton[][] seatButtons;
+
+
+
 
     public SeatMatrix()
     {
@@ -29,28 +31,17 @@ public class SeatMatrix extends JComponent {
 
     public void drawSeats(Theater theater)
     {
-        seatButtons = new SeatButton[theater.getSeats().length][theater.getSeats()[0].length];
-        /*for (int i = 0; i < seatButtons.length; i++)
-        {
-            for (int j = 0; j < seatButtons[i].length; j++)
-            {
-                seatButtons[i][j] = new SeatButton(theater.getSpecificSeat(i,j),false);
-                seatButtons[i][j].setSize(20,20);
-                setLocation(10+i*20,10+j*20);
-                seatButtons[i][j].setVisible(true);
-                add(seatButtons[i][j]);
-            }
-        }*/
-
+        setMinimumSize(new Dimension(25*theater.getSeats().length,25*theater.getSeats()[0].length));
         for (int i = 0; i < theater.getSeats().length; i++)
         {
             for (int j = 0; j < theater.getSeats()[0].length; j++)
             {
                 SeatButton seat = new SeatButton(false,false);
                 seat.setSize(20,20);
-                seat.setLocation(25*i,25*j);
+                seat.setLocation( 25 * i, 25 * j );
                 seat.addActionListener(e -> {
                     seat.flipSelection();
+                    repaint();
                 });
                 add(seat);
             }

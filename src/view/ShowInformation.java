@@ -22,8 +22,8 @@ public class ShowInformation extends JComponent{
     public void drawShow(Show show, Graphics g,int x, int y)
     {
         g.drawString(show.getFilm(),x,y);
-        g.drawString( Integer.toString(show.getTime()), 180, y);
-        g.drawString( show.getTheater().getIdentifier(),230,y);
+        g.drawString( Integer.toString(show.getTime()), x + 170, y);
+        g.drawString( show.getTheater().getIdentifier(),x + 220,y);
         JButton button = new JButton("Pick show");
         button.setSize(100,20);
         button.setLocation(300, y - 15);
@@ -38,7 +38,14 @@ public class ShowInformation extends JComponent{
     public void drawDate(Graphics g, String date, int x, int y)
     {
         g.drawString( date, x, y);
-        g.drawLine( x, y+3, x+400,y+3);
+        g.drawLine( x, y + 3, x + 400, y + 3);
+    }
+
+    public void drawColumnNames(Graphics g, int x, int y)
+    {
+        g.drawString( "Film", x , y);
+        g.drawString( "Time", x + 170, y);
+        g.drawString( "Theater", x + 220, y);
     }
 
     public void drawShows(ArrayList<Show> shows,Graphics g)
@@ -49,7 +56,9 @@ public class ShowInformation extends JComponent{
         {
             if (shows.get(i).equals(shows.get(0)))
             {
-                drawDate( g, shows.get(i).getDate(), 10, 10 + 50 * q);
+                drawColumnNames( g, 15 , 10 + 20 * q);
+                q++;
+                drawDate( g, shows.get(i).getDate(), 10, 10 + 20 * q);
                 q++;
             }
             else if (!shows.get(i).getDate().equals(shows.get(i-1).getDate()))

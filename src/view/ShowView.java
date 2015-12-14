@@ -30,6 +30,8 @@ public class ShowView extends JComponent{
             mainView.changeViewToFindReservationView();
         });
 
+        //filmJLabel.setLocation(20,30);
+
     }
 
     public void drawShows()
