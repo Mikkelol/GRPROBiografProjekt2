@@ -17,8 +17,6 @@ public class ShowInformation extends JComponent{
     {
         this.mainView = mainView;
         ArrayList<Show> shows= mainView.getShows();
-        //JLabel nameJLabel = new JLabel(shows.get(0).getFilm());
-        //System.out.println(mainView.getShows().get(0).getFilm());
     }
 
     public void drawShow(Show show, Graphics g,int x, int y)
@@ -40,6 +38,7 @@ public class ShowInformation extends JComponent{
     public void drawDate(Graphics g, String date, int x, int y)
     {
         g.drawString( date, x, y);
+        g.drawLine( x, y+3, x+400,y+3);
     }
 
     public void drawShows(ArrayList<Show> shows,Graphics g)

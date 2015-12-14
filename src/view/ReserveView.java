@@ -28,10 +28,10 @@ public class ReserveView extends JComponent {
 
     public void changeShow(Show show)
     {
+        seatMatrix1.changeShow(show);
         showNameJLabel.setText(show.getFilm());
         showTimeJLabel.setText(Integer.toString(show.getTime()));
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
-
     }
 
 
@@ -50,6 +50,7 @@ public class ReserveView extends JComponent {
 
     private void createUIComponents()
     {
+        seatMatrix1 = new SeatMatrix();
         // TODO: place custom component creation code here
     }
 }
