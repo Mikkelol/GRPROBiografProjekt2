@@ -1,6 +1,7 @@
 package controller;
 
 import exceptions.CustomerException;
+import exceptions.IllegalArrayListException;
 import model.*;
 
 import java.util.ArrayList;
@@ -88,6 +89,9 @@ public class Controller {
         }
         catch(CustomerException e){
             System.out.println("invalid input");
+        }
+        catch(IllegalArrayListException e){
+            System.out.println("ArrayList corrupt");
         }
     }
 
