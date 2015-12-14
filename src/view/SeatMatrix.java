@@ -94,7 +94,7 @@ public class SeatMatrix extends JComponent {
     {
         if (seat.isSelected())
         {
-            selected.add(seat.getPlace());
+            selected.add( seat.getPlace());
         }
         else if (!seat.isSelected())
         {   if(selected.size()>0){

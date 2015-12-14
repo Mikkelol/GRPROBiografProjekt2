@@ -62,6 +62,11 @@ public class MainView extends JFrame
         setVisible(true);
     }
 
+    public ArrayList<Reservation> getReservationList(Customer customer)
+    {
+        return controller.getReservationList(customer);
+    }
+
     public ArrayList<Show> getShows()
     {
         return controller.getShows();

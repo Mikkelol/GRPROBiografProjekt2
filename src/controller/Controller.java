@@ -50,6 +50,22 @@ public class Controller {
         return null;
 
     }
+
+    public ArrayList<Reservation> getReservationList(Customer customer)
+    {
+        ArrayList<Reservation> returnList = new ArrayList<Reservation>();
+
+        for (Reservation r: reservations)
+        {
+            if (customer.getName().equals(r.getCustomer().getName()) && customer.getNumber().equals(r.getCustomer().getNumber()))
+            {
+                returnList.add(returnList.size(),r);
+            }
+        }
+
+        return returnList;
+    }
+
     // method that overwrites a costumer's old reservation with the new one.
     public void changeReservation(Customer customer, Show show, ArrayList<int[]> seats) {
 
@@ -87,7 +103,7 @@ public class Controller {
             Reservation r = new Reservation(s, c, Seats);
             addReservation(r);
         }
-        catch(CustomerException e){
+        catch(CustomerException | IllegalArrayListException r){
             System.out.println("invalid input");
         }
         catch(IllegalArrayListException e){
