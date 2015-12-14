@@ -24,14 +24,13 @@ public class SeatMatrix extends JComponent {
     public void paint(Graphics g)
     {
         super.paint(g);
-        //seatButton = new SeatButton(true,false);
-        //seatButton.setSize(20,20);
-        //add(seatButton);
     }
 
     public void drawSeats(Theater theater)
     {
-        setMinimumSize(new Dimension(25*theater.getSeats().length,25*theater.getSeats()[0].length));
+        removeAll();
+
+        //setMinimumSize(new Dimension(25*theater.getSeats().length,25*theater.getSeats()[0].length));
         for (int i = 0; i < theater.getSeats().length; i++)
         {
             for (int j = 0; j < theater.getSeats()[0].length; j++)
@@ -41,7 +40,6 @@ public class SeatMatrix extends JComponent {
                 seat.setLocation( 25 * i, 25 * j );
                 seat.addActionListener(e -> {
                     seat.flipSelection();
-                    repaint();
                 });
                 add(seat);
             }
