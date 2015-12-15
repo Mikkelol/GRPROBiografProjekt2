@@ -65,14 +65,21 @@ public class FindReservationInformation extends JComponent{
         time.setSize(100,20);
         time.setLocation(560,y);
         add(time);
-        JButton button = new JButton("Pick Reservation");
-        button.setSize(140,20);
-        button.setLocation(670,y);
-        button.addActionListener(e -> {
+        JButton pickReservationButton = new JButton("Pick Reservation");
+        pickReservationButton.setSize(140,20);
+        pickReservationButton.setLocation(670,y);
+        pickReservationButton.addActionListener(e -> {
             Reservation r = mainView.findReservation(name.getText(), number.getText(), reservation.getShow());
             mainView.changeViewToReserveView(reservation.getShow(), reservation);
         });
-        add(button);
+        add(pickReservationButton);
+        JButton deleteReservationButton = new JButton("Delete Reservation");
+        deleteReservationButton.setSize(150,20);
+        deleteReservationButton.setLocation(820,y);
+        deleteReservationButton.addActionListener(e -> {
+
+        });
+        add(deleteReservationButton);
     }
 
     public void changeReservationList(ArrayList<Reservation> reservations)
