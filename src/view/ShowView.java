@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class ShowView extends JComponent {
     private MainView mainView;
     private JButton findReservationButton;
-    private JScrollBar scrollBar1;
     private JPanel contentPane;
     private ShowInformation showInformation1;
 
@@ -29,6 +28,7 @@ public class ShowView extends JComponent {
             mainView.resetFindReservationView();
             mainView.changeViewToFindReservationView();
         });
+
 
     }
 
@@ -59,8 +59,6 @@ public class ShowView extends JComponent {
         findReservationButton = new JButton();
         findReservationButton.setText("Find Reservation");
         contentPane.add(findReservationButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        scrollBar1 = new JScrollBar();
-        contentPane.add(scrollBar1, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         contentPane.add(showInformation1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_NORTHWEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(500, 700), null, null, 0, true));
     }
 

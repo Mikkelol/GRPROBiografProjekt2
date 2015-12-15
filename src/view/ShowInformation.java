@@ -17,6 +17,7 @@ public class ShowInformation extends JComponent{
     {
         this.mainView = mainView;
         ArrayList<Show> shows= mainView.getShows();
+
     }
 
     public void drawShow(Show show, Graphics g,int x, int y)
@@ -24,7 +25,7 @@ public class ShowInformation extends JComponent{
         g.drawString(show.getFilm(),x,y);
         g.drawString( Integer.toString(show.getTime()), x + 170, y);
         g.drawString( show.getTheater().getIdentifier(),x + 220,y);
-        JButton button = new JButton("Pick show");
+        JButton button = new JButton("Pick Show");
         button.setSize(100,20);
         button.setLocation(300, y - 15);
         button.setVisible(true);
