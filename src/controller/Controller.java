@@ -96,7 +96,7 @@ public class Controller {
         }
 
     }
-    public void saveReservation(Show s, String name, String number, ArrayList<int[]> Seats)
+    public void saveReservation(Show s, String name, String number, ArrayList<int[]> Seats) throws CustomerException
     {
         try {
             Customer c = new Customer(name, number);
@@ -104,7 +104,7 @@ public class Controller {
             Reservation r = new Reservation(s, c, Seats);
             addReservation(r);
         }
-        catch(CustomerException | IllegalArrayListException r){
+        catch(IllegalArrayListException r){
             System.out.println("invalid input");
         }
 

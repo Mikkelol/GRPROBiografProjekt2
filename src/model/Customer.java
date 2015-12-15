@@ -13,15 +13,15 @@ public class Customer {
 
     public Customer(String name, String number) throws CustomerException {
 
-        if (assertIsName(name) && assertIsNumber(number.replaceAll(" ",""))) {
+        if (assertIsName(name) && assertIsNumber(number.replaceAll(" ","")))
+        {
 
             this.name = name;
             this.number = number.replaceAll(" ","");
 
-        } else {
-
-            System.out.println("Name or number is invalid please reenter. Make sure Name does not conain numbers and number is a proper danish telephone number");
-            throw new CustomerException();
+        } else
+        {
+            throw new CustomerException("Name or number is invalid please reenter. Make sure Name does not contain numbers and number is a proper danish telephone number");
 
         }
 

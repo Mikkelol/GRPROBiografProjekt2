@@ -26,10 +26,9 @@ public class ShowView extends JComponent {
 
     public void initialize() {
         findReservationButton.addActionListener(e -> {
+            mainView.resetFindReservationView();
             mainView.changeViewToFindReservationView();
         });
-
-        //filmJLabel.setLocation(20,30);
 
     }
 

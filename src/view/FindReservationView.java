@@ -27,8 +27,9 @@ public class FindReservationView {
         findReservationButton.addActionListener(e -> {
             try {
                 findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
-            } catch (CustomerException e1) {
-                e1.printStackTrace();
+            } catch (CustomerException e1)
+            {
+                JOptionPane.showMessageDialog(mainView.getContentPane(),e1.getMessage());
             }
             mainView.changeViewToFindReservationView();
         });
@@ -39,6 +40,17 @@ public class FindReservationView {
 
     public JPanel getContentPane() {
         return contentPane;
+    }
+
+    public void resetTextFields()
+    {
+        nameTextField.setText("Name");
+        numberTextField.setText("Number");
+    }
+
+    public void resetFindReservationInformation()
+    {
+        findReservationInformation1.removeAll();
     }
 
 
