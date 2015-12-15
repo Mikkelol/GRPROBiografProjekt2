@@ -19,6 +19,7 @@ public class ShowView extends JComponent {
 
     public ShowView(MainView mainView) {
         this.mainView = mainView;
+        $$$setupUI$$$();
         initialize();
 
     }
@@ -31,7 +32,6 @@ public class ShowView extends JComponent {
         //filmJLabel.setLocation(20,30);
 
     }
-
 
 
     public JPanel getContentPane() {

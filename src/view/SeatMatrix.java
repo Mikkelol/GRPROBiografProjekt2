@@ -7,6 +7,7 @@ import model.Theater;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Olaleo on 12-12-2015.
@@ -66,14 +67,13 @@ public class SeatMatrix extends JComponent {
             for (int j = 0; j < theater.getSeats()[0].length; j++)
             {
 
-                ArrayList<int[]> selectReservations = r.getSeats();
                 int[] comparer = new int[]{i,j};
-                    for(int k=0; k<selectReservations.size()-1;k++) {
+                    for(int k=0; k<selected.size();k++) {
                         SeatButton seat;
-                        if (selectReservations.get(k) == comparer) {
+                        if (compare(selected.get(k), comparer)) {
                             seat = new SeatButton(false, true, new int[]{i, j});
 
-                        } else if (theater.getSeats()[i][j]&& selectReservations.get(k) != comparer ) {
+                        } else if (theater.getSeats()[i][j]&& selected.get(k) != comparer ) {
                             seat = new SeatButton(true, false, new int[]{i, j});
                         } else {
                             seat = new SeatButton(false, false, new int[]{i, j});
@@ -127,7 +127,22 @@ public class SeatMatrix extends JComponent {
     }
     public void changeShow(Show show, Reservation r)
     {
-        selected = new ArrayList<>();
+        selected = r.getSeats();
         drawSeats(show.getTheater(),r);
     }
+
+    public boolean compare(int[] a,int[] b)
+    {
+        if(a.length==b.length) {
+            for (int i=0 ; i<a.length; i++) {
+                if(a[i]!=b[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        else{return false;}
+
+    }
+
 }

@@ -38,7 +38,8 @@ public class Controller {
 
         for (Reservation r: reservations) {
 
-            if(customer.equals(r.getCustomer()) && show.equals(r.getShow())) {
+            if(customer.getName().equals(r.getCustomer().getName()) && customer.getNumber().equals(r.getCustomer().getNumber()) && show.getFilm().equals(r.getShow().getFilm())&&show.getDate().equals(r.getShow().getDate())&& show.getTheater().equals(r.getShow().getTheater())&& show.getTime()== r.getShow().getTime())
+            {
 
                 return r;
 

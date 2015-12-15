@@ -85,8 +85,9 @@ public class SeatButton extends JButton {
         return isSelected;
     }
 
-    public int[] getPlace()
-    {
-        return place;
+    @Override
+    public String toString(){
+        return ""+ place[0]+","+ place[1];
     }
+    public int[] getPlace() {return place;}
 }
