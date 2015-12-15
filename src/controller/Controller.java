@@ -135,11 +135,15 @@ public class Controller {
         return shows;
     }
     public void removeReservation(Reservation reservation){
-        for(Reservation r: reservations){
-            if(r.equals(reservation)){
-                unreserveSeats(r.getShow().getTheater(),r.getSeats());
-                reservations.remove(r);
+        int i=0;
+        boolean isFound=false;
+        while(!isFound){
+            if(reservations.get(i).equals(reservation)) {
+                unreserveSeats(reservation.getShow().getTheater(), reservation.getSeats());
+                reservations.remove(reservation);
+                isFound=true;
             }
+            i++;
         }
     }
 }

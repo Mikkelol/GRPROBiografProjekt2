@@ -68,8 +68,11 @@ public class ReserveView extends JComponent {
             String number = numberField.getText();
             Show s = currentShow;
             Reservation r = mainView.findReservation(name, number, s);
-            mainView.changeViewToReserveView(s, r);
-
+            if (r != null) {
+                mainView.changeViewToReserveView(s, r);
+            } else {
+                System.out.println("Customer has not made a reservation. Check your spelling");
+            }
         });
     }
 
