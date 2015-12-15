@@ -81,7 +81,6 @@ public class Controller {
         r.changeReservation(seats);
         //sets the new selected seats as reserved
         reserveSeats(theater, seats);
-        System.out.println("");
     }
 
 
@@ -136,5 +135,12 @@ public class Controller {
     public ArrayList<Show> getShows()
     {
         return shows;
+    }
+    public void removeReservation(Reservation reservation){
+        for(Reservation r: reservations){
+            if(r.equals(reservation)){
+                reservations.remove(r);
+            }
+        }
     }
 }

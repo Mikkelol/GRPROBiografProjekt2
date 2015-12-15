@@ -26,11 +26,11 @@ public class ReserveView extends JComponent {
 
     public ReserveView(MainView m) {
         mainView = m;
+        $$$setupUI$$$();
         initialize();
     }
 
-    public void changeShow(Show show)
-    {
+    public void changeShow(Show show) {
         seatMatrix1.changeShow(show);
         nameField.setText("Name");
         numberField.setText("Number");
@@ -67,6 +67,7 @@ public class ReserveView extends JComponent {
             String number = numberField.getText();
             Show s = currentShow;
             Reservation r = mainView.findReservation(name, number, s);
+            ArrayList<int[]> oldseats = r.getSeats();
             mainView.changeViewToReserveView(s, r);
 
         });

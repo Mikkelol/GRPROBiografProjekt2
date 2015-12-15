@@ -27,36 +27,8 @@ public class SeatMatrix extends JComponent {
         super.paint(g);
     }
 
+
     private void drawSeats(Theater theater)
-    {
-        removeAll();
-
-        //setMinimumSize(new Dimension(25*theater.getSeats().length,25*theater.getSeats()[0].length));
-        for (int i = 0; i < theater.getSeats().length; i++)
-        {
-            for (int j = 0; j < theater.getSeats()[0].length; j++)
-            {
-                SeatButton seat;
-                if (theater.getSeats()[i][j])
-                {
-                    seat = new SeatButton(true,false, new int[]{i,j});
-                }
-                else
-                {
-                    seat = new SeatButton(false,false, new int[]{i,j});
-                }
-                seat.setSize(20,20);
-                seat.setLocation( 25 * i, 25 * j );
-                seat.addActionListener(e -> {
-                    seat.flipSelection();
-                    updateSelected(seat);
-                });
-                add(seat);
-            }
-        }
-    }
-
-    private void drawSeats(Theater theater, Reservation r)
     {
         removeAll();
 
@@ -128,7 +100,7 @@ public class SeatMatrix extends JComponent {
     public void changeShow(Show show, Reservation r)
     {
         selected = r.getSeats();
-        drawSeats(show.getTheater(),r);
+        drawSeats(show.getTheater());
     }
 
     public boolean compare(int[] a, int[] b)

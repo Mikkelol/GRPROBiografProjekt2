@@ -111,6 +111,9 @@ public class MainView extends JFrame
             return null;
         }
     }
+    public Controller getController() {
+        return controller;
+    }
 }
 
 
