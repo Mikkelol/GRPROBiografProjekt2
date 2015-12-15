@@ -137,6 +137,7 @@ public class Controller {
     public void removeReservation(Reservation reservation){
         for(Reservation r: reservations){
             if(r.equals(reservation)){
+                unreserveSeats(r.getShow().getTheater(),r.getSeats());
                 reservations.remove(r);
             }
         }
