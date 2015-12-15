@@ -36,10 +36,6 @@ public class FindReservationView {
         });
     }
 
-    public void changeReservationList(Customer customer)
-    {
-        findReservationInformation1.changeReservationList(mainView.getReservationList(customer));
-    }
 
     public JPanel getContentPane() {
         return contentPane;

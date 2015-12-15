@@ -81,7 +81,6 @@ public class FindReservationInformation extends JComponent{
         deleteReservationButton.addActionListener(e -> {
             mainView.removeReservation(reservation);
             mainView.changeViewToFindReservationView(reservation.getCustomer());
-            //findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
         });
         add(deleteReservationButton);
     }
