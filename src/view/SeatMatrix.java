@@ -7,7 +7,6 @@ import model.Theater;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by Olaleo on 12-12-2015.
@@ -31,7 +30,7 @@ public class SeatMatrix extends JComponent {
     private void drawSeats(Theater theater)
     {
         removeAll();
-
+        System.out.println("0");
         //setMinimumSize(new Dimension(25*theater.getSeats().length,25*theater.getSeats()[0].length));
         for (int i = 0; i < theater.getSeats().length; i++)
         {
@@ -60,24 +59,26 @@ public class SeatMatrix extends JComponent {
     private void drawSeats(Theater theater, Reservation r)
     {
         removeAll();
-
+        System.out.println("1");
 
         for (int i = 0; i < theater.getSeats().length; i++)
         {
             for (int j = 0; j < theater.getSeats()[0].length; j++)
             {
-
                 int[] comparer = new int[]{i,j};
-                    for(int k=0; k<selected.size();k++) {
-                        SeatButton seat;
-                        if (compare(selected.get(k), comparer)) {
-                            seat = new SeatButton(false, true, new int[]{i, j});
 
-                        } else if (theater.getSeats()[i][j]&& selected.get(k) != comparer ) {
-                            seat = new SeatButton(true, false, new int[]{i, j});
-                        } else {
-                            seat = new SeatButton(false, false, new int[]{i, j});
-                        }
+                SeatButton seat;
+                if(compare(selected,comparer)){
+                    seat = new SeatButton(false,true,new int[]{i,j});
+                }
+                else if (theater.getSeats()[i][j]&& !compare(selected,comparer))
+                {
+                    seat = new SeatButton(true, false, new int[]{i, j});
+                }
+                else
+                {
+                    seat = new SeatButton(false, false, new int[]{i, j});
+                }
                         seat.setSize(20, 20);
                         seat.setLocation(25 * i, 25 * j);
                         seat.addActionListener(e -> {
@@ -85,7 +86,6 @@ public class SeatMatrix extends JComponent {
                             updateSelected(seat);
                         });
                         add(seat);
-                    }
             }
         }
     }
@@ -131,7 +131,7 @@ public class SeatMatrix extends JComponent {
         drawSeats(show.getTheater(),r);
     }
 
-    public boolean compare(int[] a,int[] b)
+    public boolean compare(int[] a, int[] b)
     {
         if(a.length==b.length) {
             for (int i=0 ; i<a.length; i++) {
@@ -143,6 +143,15 @@ public class SeatMatrix extends JComponent {
         }
         else{return false;}
 
+    }
+
+    public boolean compare(ArrayList<int[]> a ,int[] b){
+        for(int i =0;i<a.size();i++){
+         if(compare(a.get(i),b)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
