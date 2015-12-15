@@ -77,7 +77,7 @@ public class FindReservationInformation extends JComponent{
         deleteReservationButton.setSize(150,20);
         deleteReservationButton.setLocation(820,y);
         deleteReservationButton.addActionListener(e -> {
-
+            mainView.removeReservation(reservation);
         });
         add(deleteReservationButton);
     }

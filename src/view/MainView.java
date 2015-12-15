@@ -114,6 +114,11 @@ public class MainView extends JFrame
     public Controller getController() {
         return controller;
     }
+
+    public void removeReservation(Reservation reservation)
+    {
+        controller.removeReservation(reservation);
+    }
 }
 
 
