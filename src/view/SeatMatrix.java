@@ -55,7 +55,6 @@ public class SeatMatrix extends JComponent {
                         seat.addActionListener(e -> {
                             seat.flipSelection();
                             updateSelected(seat);
-                            System.out.println(selected.size());
                         });
                         add(seat);
             }
@@ -99,7 +98,10 @@ public class SeatMatrix extends JComponent {
     }
     public void changeShow(Show show, Reservation r)
     {
-        selected = r.getSeats();
+        selected = new ArrayList<int[]>();
+        for(int[] i:r.getSeats()){
+            selected.add(new int[]{i[0],i[1]});
+        }
         drawSeats(show.getTheater());
     }
 

@@ -47,7 +47,6 @@ public class Controller {
 
         }
 
-        System.out.println("Controller.findReservation: No reservation found");
         return null;
 
     }
@@ -69,7 +68,6 @@ public class Controller {
 
     // method that overwrites a costumer's old reservation with the new one.
     public void changeReservation(Customer customer, Show show, ArrayList<int[]> seats) {
-
 
         //finds the reservation
         Reservation r = findReservation(customer, show);
