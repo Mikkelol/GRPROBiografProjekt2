@@ -69,7 +69,8 @@ public class FindReservationInformation extends JComponent{
         button.setSize(140,20);
         button.setLocation(670,y);
         button.addActionListener(e -> {
-            mainView.changeViewToReserveView(reservation.getShow());
+            Reservation r = mainView.findReservation(name.getText(), number.getText(), reservation.getShow());
+            mainView.changeViewToReserveView(reservation.getShow(), reservation);
         });
         add(button);
     }

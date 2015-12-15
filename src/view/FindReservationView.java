@@ -23,7 +23,6 @@ public class FindReservationView {
 
     public FindReservationView(MainView mainView) {
         this.mainView = mainView;
-        $$$setupUI$$$();
         findReservationButton.addActionListener(e -> {
             try {
                 findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));

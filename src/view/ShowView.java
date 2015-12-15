@@ -19,7 +19,7 @@ public class ShowView extends JComponent {
 
     public ShowView(MainView mainView) {
         this.mainView = mainView;
-        $$$setupUI$$$();
+
         initialize();
 
     }
