@@ -41,6 +41,13 @@ public class ReserveView extends JComponent {
         currentShow = show;
     }
 
+    public void changeShow(Show show, Reservation r) {
+        seatMatrix1.changeShow(show, r);
+        showNameJLabel.setText(show.getFilm());
+        showTimeJLabel.setText(Integer.toString(show.getTime()));
+        showTheaterJLabel.setText(show.getTheater().getIdentifier());
+        currentShow = show;
+    }
 
     public void initialize() {
         cancelButton.addActionListener(e -> {
@@ -61,8 +68,7 @@ public class ReserveView extends JComponent {
             String number = numberField.getText();
             Show s = currentShow;
             Reservation r = mainView.findReservation(name, number, s);
-            seatMatrix1.changeShow(s, r);
-            mainView.changeViewToReserveView(s);
+            mainView.changeViewToReserveView(s, r);
 
         });
     }

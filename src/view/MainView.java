@@ -55,6 +55,14 @@ public class MainView extends JFrame
         setVisible(true);
     }
 
+    public void changeViewToReserveView(Show show, Reservation r)
+    {
+        reserveView.changeShow(show,r);
+        setContentPane(reserveView.getContentPane());
+        pack();
+        setVisible(true);
+    }
+
     public void changeViewToFindReservationView()
     {
         findReservationView.resetTextFields();

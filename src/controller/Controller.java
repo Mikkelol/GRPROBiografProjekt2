@@ -28,7 +28,7 @@ public class Controller {
 
         Theater theater = reservation.getShow().getTheater();
 
-        notifyTheater(theater, reservation.getSeats());
+        reserveSeats(theater, reservation.getSeats());
 
         reservations.add(reservation);
 
@@ -76,11 +76,11 @@ public class Controller {
         // Finds the theater
         Theater theater = r.getShow().getTheater();
         //sets the previously reserved seats to not reserved
-        notifyTheater(theater, r.getSeats());
+        unreserveSeats(theater, r.getSeats());
         //stores the new selected seats in the reservation
         r.changeReservation(seats);
         //sets the new selected seats as reserved
-        notifyTheater(theater, seats);
+        reserveSeats(theater, seats);
 
     }
 
@@ -96,13 +96,36 @@ public class Controller {
         }
 
     }
-    public void saveReservation(Show s, String name, String number, ArrayList<int[]> Seats) throws CustomerException
+
+    private void reserveSeats(Theater theater, ArrayList<int[]> seats) {
+
+        for (int[] seat: seats) {
+
+            theater.setReservationTrue(seat[0], seat[1]);
+
+        }
+
+    }
+    private void unreserveSeats(Theater theater, ArrayList<int[]> seats) {
+
+        for (int[] seat: seats) {
+
+            theater.setReservationFalse(seat[0], seat[1]);
+
+        }
+
+    }
+    public void saveReservation(Show s, String name, String number, ArrayList<int[]> seats)
     {
         try {
             Customer c = new Customer(name, number);
-
-            Reservation r = new Reservation(s, c, Seats);
-            addReservation(r);
+            if(findReservation(c,s)== null) {
+                Reservation r = new Reservation(s, c, seats);
+                addReservation(r);
+            }
+            else{
+                changeReservation(c,s,seats);
+            }
         }
         catch(IllegalArrayListException r){
             System.out.println("invalid input");
