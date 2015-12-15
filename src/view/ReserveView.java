@@ -30,8 +30,11 @@ public class ReserveView extends JComponent {
         initialize();
     }
 
-    public void changeShow(Show show) {
+    public void changeShow(Show show)
+    {
         seatMatrix1.changeShow(show);
+        nameField.setText("Name");
+        numberField.setText("Number");
         showNameJLabel.setText(show.getFilm());
         showTimeJLabel.setText(Integer.toString(show.getTime()));
         showTheaterJLabel.setText(show.getTheater().getIdentifier());

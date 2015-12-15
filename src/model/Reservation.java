@@ -12,7 +12,7 @@ public class Reservation {
 
     private Show show;
     private Customer customer;
-    private ArrayList<int[]>seats;
+    private ArrayList<int[]> seats;
 
     public Reservation(Show show, Customer customer, ArrayList<int[]> seats) throws IllegalArrayListException {
 

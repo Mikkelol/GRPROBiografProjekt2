@@ -65,9 +65,14 @@ public class MainView extends JFrame
 
     public void changeViewToFindReservationView()
     {
+        findReservationView.resetTextFields();
         setContentPane(findReservationView.getContentPane());
         pack();
         setVisible(true);
+    }
+    public void resetFindReservationView()
+    {
+        findReservationView.resetFindReservationInformation();
     }
 
     public ArrayList<Reservation> getReservationList(Customer customer)
@@ -82,8 +87,16 @@ public class MainView extends JFrame
 
     public void saveReservation (Show s, String name, String number,ArrayList<int[]> selectedSeats)
     {
-    controller.saveReservation(s,name,number,selectedSeats);
+        try
+        {
+            controller.saveReservation(s, name, number, selectedSeats);
+        }
+        catch (CustomerException e1)
+        {
+            JOptionPane.showMessageDialog(getContentPane(),e1.getMessage());
+        }
     }
+
 
 
     public Reservation findReservation(String name, String number, Show s) {

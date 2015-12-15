@@ -127,7 +127,7 @@ public class Controller {
                 changeReservation(c,s,seats);
             }
         }
-        catch(CustomerException | IllegalArrayListException r){
+        catch(IllegalArrayListException r){
             System.out.println("invalid input");
         }
 
