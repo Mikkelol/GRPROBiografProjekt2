@@ -81,7 +81,7 @@ public class Controller {
         r.changeReservation(seats);
         //sets the new selected seats as reserved
         reserveSeats(theater, seats);
-
+        System.out.println("");
     }
 
 
@@ -115,7 +115,7 @@ public class Controller {
         }
 
     }
-    public void saveReservation(Show s, String name, String number, ArrayList<int[]> seats)
+    public void saveReservation(Show s, String name, String number, ArrayList<int[]> seats) throws CustomerException
     {
         try {
             Customer c = new Customer(name, number);
