@@ -1,5 +1,6 @@
 package view;
 
+import model.Customer;
 import model.Reservation;
 
 import javax.swing.*;
@@ -41,6 +42,7 @@ public class FindReservationInformation extends JComponent{
 
     private void drawReservation( Reservation reservation, int y)
     {
+
         JLabel name = new JLabel(reservation.getCustomer().getName());
         name.setSize(100,20);
         name.setLocation(10,y);
@@ -78,12 +80,15 @@ public class FindReservationInformation extends JComponent{
         deleteReservationButton.setLocation(820,y);
         deleteReservationButton.addActionListener(e -> {
             mainView.removeReservation(reservation);
+            mainView.changeViewToFindReservationView(reservation.getCustomer());
+            //findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
         });
         add(deleteReservationButton);
     }
 
     public void changeReservationList(ArrayList<Reservation> reservations)
     {
+        removeAll();
         this.reservations = reservations;
         drawReservationsInformations(reservations);
 

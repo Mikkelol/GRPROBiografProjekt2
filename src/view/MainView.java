@@ -70,6 +70,16 @@ public class MainView extends JFrame
         pack();
         setVisible(true);
     }
+
+    public void changeViewToFindReservationView(Customer customer)
+    {
+        findReservationView.resetTextFields();
+        findReservationView.changeReservationList(customer);
+        setContentPane(findReservationView.getContentPane());
+        pack();
+        setVisible(true);
+    }
+
     public void resetFindReservationView()
     {
         findReservationView.resetFindReservationInformation();
