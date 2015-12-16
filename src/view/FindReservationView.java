@@ -25,7 +25,7 @@ public class FindReservationView {
         $$$setupUI$$$();
         findReservationButton.addActionListener(e -> {
             try {
-                findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
+                findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText().toLowerCase(), numberTextField.getText().toLowerCase())));
                 mainView.changeViewToFindReservationView();
             } catch (CustomerException e1) {
                 JOptionPane.showMessageDialog(mainView.getContentPane(), e1.getMessage());

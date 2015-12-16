@@ -61,8 +61,8 @@ public class ReserveView extends JComponent {
             if (seatMatrix1.getSelected().size() > 0) {
                 try
                 {
-                    String name = nameField.getText();
-                    String number = numberField.getText();
+                    String name = nameField.getText().toLowerCase();
+                    String number = numberField.getText().toLowerCase();
                     ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
                     mainView.saveReservation(currentShow, name, number, selectedSeats);
                     mainView.changeViewToShowView();
