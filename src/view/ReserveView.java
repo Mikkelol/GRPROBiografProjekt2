@@ -59,17 +59,14 @@ public class ReserveView extends JComponent {
 
         saveReservationButton.addActionListener(e -> {
             if (seatMatrix1.getSelected().size() > 0) {
-                try
-                {
+                try {
                     String name = nameField.getText();
                     String number = numberField.getText();
                     ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
                     mainView.saveReservation(currentShow, name, number, selectedSeats);
                     mainView.changeViewToShowView();
-                }
-                catch (CustomerException e1)
-                {
-                    JOptionPane.showMessageDialog(getContentPane(),e1.getMessage());
+                } catch (CustomerException e1) {
+                    JOptionPane.showMessageDialog(getContentPane(), e1.getMessage());
                 }
             }
         });
