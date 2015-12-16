@@ -52,6 +52,9 @@ public class ShowInformation extends JComponent{
     * time, Theater and a pick show button*/
     public void drawShows(ArrayList<Show> shows,Graphics g)
     {
+
+        removeAll();
+
         int q = 0;
 
         for (int i = 0; i < shows.size(); i++)
@@ -72,6 +75,7 @@ public class ShowInformation extends JComponent{
             drawShow( shows.get(i), g, 15, 10 + 20 * q);
             q++;
         }
+        setMinimumSize(new Dimension(410, q*20 + 10));
     }
 
 
@@ -81,4 +85,5 @@ public class ShowInformation extends JComponent{
         super.paint(g);
         drawShows(mainView.getShows(),g);
     }
+
 }

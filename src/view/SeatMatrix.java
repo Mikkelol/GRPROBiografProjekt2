@@ -61,6 +61,35 @@ public class SeatMatrix extends JComponent {
                         add(seat);
             }
         }
+
+        //This attempts to take screen size into account when creating the seatmatrix
+        //screen size is slightly smaller in height due to task bar as this are screen sizes the doubles should not exceed the int limit and can thus be cast as int
+
+        Dimension screenSize = new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() -30);
+        Dimension theaterSize = new Dimension(theater.getNumberOFSeats()*25, theater.getNumberOfRows()*25);
+
+        if (screenSize.getWidth() > theaterSize.getWidth()+10 && screenSize.getHeight() > theaterSize.getHeight()+100) {
+
+            // theater is smaller than the screen
+            setMinimumSize(theaterSize);
+
+        } else if (screenSize.getWidth() < theaterSize.getWidth()+10 && screenSize.getHeight() > theaterSize.getHeight()+100) {
+
+            //if height is ok but width is too large
+            setMinimumSize(new Dimension((int) screenSize.getWidth(), (int) theaterSize.getHeight()));
+
+        } else if (screenSize.getWidth() > theaterSize.getWidth() && screenSize.getHeight() < theaterSize.getHeight()) {
+
+            //if height is to large but width is ok
+            setMinimumSize(new Dimension((int) theaterSize.getWidth() , (int) screenSize.getHeight()));
+
+        } else {
+
+            //if theater is larger than the screen
+            setMinimumSize(screenSize);
+
+        }
+
     }
 
     //Method for selecting and deselecting buttons.
