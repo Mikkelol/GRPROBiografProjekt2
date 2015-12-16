@@ -118,12 +118,8 @@ public class MainView extends JFrame
         }
 
         catch(CustomerException e){
-            System.out.println("Customer not found");
             return null;
         }
-    }
-    public Controller getController() {
-        return controller;
     }
 
     public void removeReservation(Reservation reservation)

@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
  */
 public class InstanciatorTest {
 
+
     @org.junit.Test
     public void testCreateTheaterMap() throws Exception {
         HashMap<String, Theater> theater = Instanciator.createTheaterMap();

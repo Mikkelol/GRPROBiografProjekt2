@@ -33,7 +33,7 @@ public class Controller {
         reservations.add(reservation);
 
     }
-    //finds a reservation with a costumers name, phone number and show
+    //finds a reservation with a customers name, phone number and show
     public Reservation findReservation(Customer customer, Show show) {
 
         for (Reservation r: reservations) {
@@ -51,6 +51,7 @@ public class Controller {
 
     }
 
+    //method that finds all reservations made by a customer and adds them to an ArrayList which is returned
     public ArrayList<Reservation> getReservationList(Customer customer)
     {
         ArrayList<Reservation> returnList = new ArrayList<Reservation>();
@@ -84,16 +85,6 @@ public class Controller {
 
     /*method for reserving seats. The ArrayList of seats will be the seats selected by the clerk when she presses the reserve
        button. */
-    private void notifyTheater(Theater theater, ArrayList<int[]> seats) {
-
-        for (int[] seat: seats) {
-
-            theater.flipReservation(seat[0], seat[1]);
-
-        }
-
-    }
-
     private void reserveSeats(Theater theater, ArrayList<int[]> seats) {
 
         for (int[] seat: seats) {
@@ -103,6 +94,7 @@ public class Controller {
         }
 
     }
+    //Similar to reserveSeats, except it unreserves them
     private void unreserveSeats(Theater theater, ArrayList<int[]> seats) {
 
         for (int[] seat: seats) {
@@ -112,6 +104,8 @@ public class Controller {
         }
 
     }
+    /* gains its parameters from the SaveReservationButton. Checks if the customer has already made a reservation to the
+     show.If it haven't it will add a new reservation. If it has it will change the customers reservation instead*/
     public void saveReservation(Show s, String name, String number, ArrayList<int[]> seats) throws CustomerException
     {
         try {
@@ -130,10 +124,13 @@ public class Controller {
 
     }
 
+
     public ArrayList<Show> getShows()
     {
         return shows;
     }
+
+    //finds a stored reservation, removes it and unreserves the seats to the given show
     public void removeReservation(Reservation reservation){
         int i=0;
         boolean isFound=false;

@@ -18,23 +18,6 @@ public class SeatButton extends JButton {
 
     private int[] place;
 
-    public SeatButton(boolean isReserved, boolean isSelected) {
-
-        super();
-
-        this.isReserved = isReserved;
-        this.isSelected = isSelected;
-
-    }
-
-    public SeatButton(String text, boolean isReserved, boolean isSelected) {
-
-        super(text);
-
-        this.isReserved = isReserved;
-        this.isSelected = isSelected;
-
-    }
 
     public SeatButton(boolean isReserved, boolean isSelected, int[] place)
     {
@@ -73,11 +56,6 @@ public class SeatButton extends JButton {
         }
     }
 
-    public void flipReservation() {
-
-        this.isReserved = !isReserved;
-
-    }
 
     @Override
     public boolean isSelected()

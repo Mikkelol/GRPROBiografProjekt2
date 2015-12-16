@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ControllerTest {
 
     @Test
-    public void testAddreservation() throws Exception {
+    public void testAddReservation() throws Exception {
         //Make the neccesary components for the method
         Controller controller = new Controller();
         Customer c = new Customer("Søren Andersen","30205060");
@@ -38,6 +38,7 @@ public class ControllerTest {
 
     @Test
     public void testFindReservation() throws Exception {
+        //very much like testAddReservation, but allows us to narrow down where it went wrong if addReservation test fails
         //make the components
         Controller controller = new Controller();
         Customer c = new Customer("Søren Andersen","30205060");
@@ -48,7 +49,7 @@ public class ControllerTest {
         seats.add(new int[]{2,3});
         seats.add(new int[]{2,4});
         Reservation r = new Reservation(s,c,seats);
-        // call method and chekc if the reservation added is the same as the one returned by the method
+        // call method and check if the reservation added is the same as the one returned by the method
         controller.addReservation(r);
         assertEquals(r, controller.findReservation(c, s));
     }
