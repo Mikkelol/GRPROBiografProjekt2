@@ -58,7 +58,6 @@ public class FindReservationView {
 
     private void createUIComponents() {
         findReservationInformation1 = new FindReservationInformation(mainView);
-        // TODO: place custom component creation code here
     }
 
     /**

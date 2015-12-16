@@ -82,7 +82,6 @@ public class ReserveView extends JComponent {
 
     private void createUIComponents() {
         seatMatrix1 = new SeatMatrix();
-        // TODO: place custom component creation code here
     }
 
     /**
