@@ -1,10 +1,9 @@
 package view;
 
-import model.Show;
+
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 10-12-2015.

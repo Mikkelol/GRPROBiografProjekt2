@@ -46,6 +46,8 @@ public class ReserveView extends JComponent {
         showNameJLabel.setText(show.getFilm());
         showTimeJLabel.setText(Integer.toString(show.getTime()));
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
+        nameField.setText(r.getCustomer().getName());
+        numberField.setText(r.getCustomer().getNumber());
         currentShow = show;
     }
 
@@ -71,7 +73,7 @@ public class ReserveView extends JComponent {
             if (r != null) {
                 mainView.changeViewToReserveView(s, r);
             } else {
-                System.out.println("Customer has not made a reservation. Check your spelling");
+                JOptionPane.showMessageDialog(mainView.getContentPane(), "Customer has not made a reservation. Check your spelling");
             }
         });
     }
