@@ -33,6 +33,9 @@ public class ShowView extends JComponent {
 
     }
 
+    public ShowInformation getShowInformation1() {
+        return showInformation1;
+    }
 
     public JPanel getContentPane() {
         return contentPane;
