@@ -18,14 +18,25 @@ public class ShowInformation extends JComponent{
         this.mainView = mainView;
     }
 
-    public void drawShow(Show show, Graphics g,int x, int y)
+    public void drawShow(Show show,int x, int y)
     {
-        g.drawString(show.getFilm(),x,y);
-        g.drawString( Integer.toString(show.getTime()), x + 170, y);
-        g.drawString( show.getTheater().getIdentifier(),x + 220,y);
+        JLabel filmNameJLabel = new JLabel(show.getFilm());
+        filmNameJLabel.setSize(100,20);
+        filmNameJLabel.setLocation(x,y);
+        add(filmNameJLabel);
+        JLabel filmTimeJLabel = new JLabel(Integer.toString(show.getTime()));
+        filmTimeJLabel.setSize(100,20);
+        filmTimeJLabel.setLocation(x+170,y);
+        add(filmTimeJLabel);
+        JLabel filmTheaterJLabel = new JLabel(show.getTheater().getIdentifier());
+        filmTheaterJLabel.setSize(100,20);
+        filmTheaterJLabel.setLocation(x+220,y);
+        add(filmTheaterJLabel);
+
+
         JButton button = new JButton("Pick Show");
         button.setSize(100,20);
-        button.setLocation(300, y - 15);
+        button.setLocation(300, y);
         button.setVisible(true);
         button.addActionListener(e -> {
             mainView.changeViewToReserveView(show);
@@ -34,21 +45,49 @@ public class ShowInformation extends JComponent{
 
     }
 
-    public void drawDate(Graphics g, String date, int x, int y)
+    public void drawDate( String date, int x, int y)
     {
-        g.drawString( date, x, y);
-        g.drawLine( x, y + 3, x + 400, y + 3);
+        JLabel dateJLabel = new JLabel(date);
+        dateJLabel.setSize(100,20);
+        dateJLabel.setLocation(x,y);
+        add(dateJLabel);
+        JSeparator lineJSeparator = new JSeparator(SwingConstants.HORIZONTAL);
+        lineJSeparator.setSize(300,1);
+        lineJSeparator.setLocation(x,y + 20);
+        add(lineJSeparator);
+
+
+
+        //g.drawLine( x, y + 3, x + 400, y + 3);
     }
 
-    public void drawColumnNames(Graphics g, int x, int y)
+    public void drawColumnNames( int x, int y)
     {
-        g.drawString( "Film", x , y);
-        g.drawString( "Time", x + 170, y);
-        g.drawString( "Theater", x + 220, y);
+        JLabel filmJLabel = new JLabel("film");
+        filmJLabel.setSize(100,20);
+        filmJLabel.setLocation(x,y);
+        add(filmJLabel);
+        JLabel timeJLabel = new JLabel("Time");
+        timeJLabel.setSize(100,20);
+        timeJLabel.setLocation( x + 170,y);
+        add(timeJLabel);
+        JLabel theaterJLabel = new JLabel("Theater");
+        theaterJLabel.setSize(100,20);
+        theaterJLabel.setLocation( x + 220,y);
+        add(theaterJLabel);
+
+
+
     }
+
+    public void changeShowList(ArrayList<Show> shows)
+    {
+        drawShows(shows);
+    }
+
     /*draws the shows. A line with a date above followed by all shows on that date, a show is represented by its film,
     * time, Theater and a pick show button*/
-    public void drawShows(ArrayList<Show> shows,Graphics g)
+    private void drawShows(ArrayList<Show> shows)
     {
 
         removeAll();
@@ -59,18 +98,18 @@ public class ShowInformation extends JComponent{
         {
             if (shows.get(i).equals(shows.get(0)))
             {
-                drawColumnNames( g, 15 , 10 + 20 * q);
+                drawColumnNames( 15 ,  20 * q);
                 q++;
-                drawDate( g, shows.get(i).getDate(), 10, 10 + 20 * q);
+                drawDate( shows.get(i).getDate(), 10, 20 * q);
                 q++;
             }
             else if (!shows.get(i).getDate().equals(shows.get(i-1).getDate()))
             {
-                drawDate( g, shows.get(i).getDate(), 10, 10 + 20 * q);
+                drawDate( shows.get(i).getDate(), 10, 20 * q);
                 q++;
             }
 
-            drawShow( shows.get(i), g, 15, 10 + 20 * q);
+            drawShow( shows.get(i), 15,  20 * q);
             q++;
         }
         setMinimumSize(new Dimension(410, q*20 + 10));
@@ -81,7 +120,6 @@ public class ShowInformation extends JComponent{
     public void paint(Graphics g)
     {
         super.paint(g);
-        drawShows(mainView.getShows(),g);
     }
 
 }

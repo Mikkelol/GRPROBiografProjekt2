@@ -2,8 +2,11 @@ package view;
 
 
 
+import model.Show;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 10-12-2015.
@@ -32,8 +35,9 @@ public class ShowView extends JComponent {
 
     }
 
-    public ShowInformation getShowInformation1() {
-        return showInformation1;
+    public void changeShowList(ArrayList<Show> shows)
+    {
+        showInformation1.changeShowList(shows);
     }
 
     public JPanel getContentPane() {

@@ -126,7 +126,7 @@ public class SeatMatrix extends JComponent {
     //regular change show method draws the theater for the show without any selection made.
     public void changeShow(Show show)
     {
-        selected = new ArrayList<>();
+        selected = new ArrayList<int[]>();
         drawSeats(show.getTheater());
     }
     /*changeShow method with a reservation adds a reservations seats to the selected array. Thereby making them selected
