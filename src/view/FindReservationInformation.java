@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 14-12-2015.
+ * the Window from where you can enter af name and a phone number and get a list of all the reservations a given customer
+ * has made. Every reservation on the list then has the possibility to either delete a reservation og change it.
  */
 public class FindReservationInformation extends JComponent{
 
