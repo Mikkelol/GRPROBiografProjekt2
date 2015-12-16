@@ -63,7 +63,7 @@ public class ShowInformation extends JComponent{
 
     public void drawColumnNames( int x, int y)
     {
-        JLabel filmJLabel = new JLabel("film");
+        JLabel filmJLabel = new JLabel("Film");
         filmJLabel.setSize(100,20);
         filmJLabel.setLocation(x,y);
         add(filmJLabel);

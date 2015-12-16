@@ -53,7 +53,6 @@ public class FindReservationView {
 
     public void changeReservationList(ArrayList<Reservation> reservations) {
         findReservationInformation1.changeReservationList(reservations);
-
     }
 
     private void createUIComponents() {

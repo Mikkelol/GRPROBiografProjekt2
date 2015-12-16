@@ -22,11 +22,52 @@ public class FindReservationInformation extends JComponent{
 
     private void drawReservationsInformations( ArrayList<Reservation> reservations)
     {
+        int q = 0;
         for (int i = 0; i < reservations.size(); i++)
         {
-            drawReservation(reservations.get(i), 20 * i);
+            if (reservations.get(i).equals(reservations.get(0)))
+                {
+                    drawColumnNames(20*q);
+                    q++;
+                }
+            drawReservation(reservations.get(i), 20 * q);
+            q++;
         }
+        setMinimumSize(new Dimension(1000, 20 * q  + 10));
     }
+
+    private void drawColumnNames(int y)
+    {
+        JLabel name = new JLabel("Name");
+        name.setSize(100,20);
+        name.setLocation(10,y);
+        add(name);
+        JLabel number = new JLabel("Number");
+        number.setSize(70,20);
+        number.setLocation(120,y);
+        add(number);
+        JLabel show = new JLabel("Film");
+        show.setSize(100,20);
+        show.setLocation(230,y);
+        add(show);
+        JLabel theater = new JLabel("Theater");
+        theater.setSize(100,20);
+        theater.setLocation(340,y);
+        add(theater);
+        JLabel date = new JLabel("Date");
+        date.setSize(100,20);
+        date.setLocation(450,y);
+        add(date);
+        JLabel time = new JLabel("Time");
+        time.setSize(100,20);
+        time.setLocation(560,y);
+        add(time);
+        JSeparator lineJSeparator = new JSeparator(SwingConstants.HORIZONTAL);
+        lineJSeparator.setSize(660,1);
+        lineJSeparator.setLocation(10,y + 20);
+        add(lineJSeparator);
+    }
+
 
     private void drawReservation( Reservation reservation, int y)
     {
