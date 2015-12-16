@@ -73,7 +73,7 @@ public class ReserveView extends JComponent {
             if (r != null) {
                 mainView.changeViewToReserveView(s, r);
             } else {
-                System.out.println("Customer has not made a reservation. Check your spelling");
+                JOptionPane.showMessageDialog(mainView.getContentPane(), "Customer has not made a reservation. Check your spelling");
             }
         });
     }

@@ -12,30 +12,18 @@ import java.util.ArrayList;
  */
 public class FindReservationInformation extends JComponent{
 
-    private ArrayList<Reservation> reservations;
     private MainView mainView;
 
     public FindReservationInformation(MainView mainView)
     {
         this.mainView = mainView;
-        reservations = new ArrayList<>();
     }
 
-    @Override
-    public void paint(Graphics g)
-    {
-        super.paint(g);
-        if (reservations.size()<0)
-        {
-            //drawReservationsInformations(g, reservations);
-        }
-    }
 
     private void drawReservationsInformations( ArrayList<Reservation> reservations)
     {
         for (int i = 0; i < reservations.size(); i++)
         {
-            //drawReservation(g,reservations.get(i),20*i);
             drawReservation(reservations.get(i), 20 * i);
         }
     }
@@ -71,7 +59,6 @@ public class FindReservationInformation extends JComponent{
         pickReservationButton.setSize(140,20);
         pickReservationButton.setLocation(670,y);
         pickReservationButton.addActionListener(e -> {
-            Reservation r = mainView.findReservation(name.getText(), number.getText(), reservation.getShow());
             mainView.changeViewToReserveView(reservation.getShow(), reservation);
         });
         add(pickReservationButton);
@@ -88,7 +75,6 @@ public class FindReservationInformation extends JComponent{
     public void changeReservationList(ArrayList<Reservation> reservations)
     {
         removeAll();
-        this.reservations = reservations;
         drawReservationsInformations(reservations);
 
     }
