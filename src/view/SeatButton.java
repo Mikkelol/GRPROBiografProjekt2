@@ -10,7 +10,7 @@ import java.awt.*;
 public class SeatButton extends JButton {
 
     private Color freeColor = Color.GREEN;
-    private Color reservedColor = Color.RED;
+    private Color reservedColor = Color.MAGENTA;
     private Color selectedColor = Color.BLUE;
 
     private boolean isReserved;

@@ -26,10 +26,10 @@ public class FindReservationView {
         findReservationButton.addActionListener(e -> {
             try {
                 findReservationInformation1.changeReservationList(mainView.getReservationList(new Customer(nameTextField.getText(), numberTextField.getText())));
+                mainView.changeViewToFindReservationView();
             } catch (CustomerException e1) {
                 JOptionPane.showMessageDialog(mainView.getContentPane(), e1.getMessage());
             }
-            mainView.changeViewToFindReservationView();
         });
         cancelButton.addActionListener(e -> {
             mainView.changeViewToShowView();

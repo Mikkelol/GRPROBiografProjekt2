@@ -93,16 +93,12 @@ public class MainView extends JFrame
         return controller.getShows();
     }
 
-    public void saveReservation (Show s, String name, String number,ArrayList<int[]> selectedSeats)
+    public void saveReservation (Show s, String name, String number,ArrayList<int[]> selectedSeats) throws CustomerException
     {
-        try
-        {
+
             controller.saveReservation(s, name, number, selectedSeats);
-        }
-        catch (CustomerException e1)
-        {
-            JOptionPane.showMessageDialog(getContentPane(),e1.getMessage());
-        }
+
+
     }
 
 

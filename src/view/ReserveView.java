@@ -1,5 +1,6 @@
 package view;
 
+import exceptions.CustomerException;
 import model.Reservation;
 import model.Show;
 
@@ -58,11 +59,18 @@ public class ReserveView extends JComponent {
 
         saveReservationButton.addActionListener(e -> {
             if (seatMatrix1.getSelected().size() > 0) {
-                String name = nameField.getText();
-                String number = numberField.getText();
-                ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
-                mainView.saveReservation(currentShow, name, number, selectedSeats);
-                mainView.changeViewToShowView();
+                try
+                {
+                    String name = nameField.getText();
+                    String number = numberField.getText();
+                    ArrayList<int[]> selectedSeats = seatMatrix1.getSelected();
+                    mainView.saveReservation(currentShow, name, number, selectedSeats);
+                    mainView.changeViewToShowView();
+                }
+                catch (CustomerException e1)
+                {
+                    JOptionPane.showMessageDialog(getContentPane(),e1.getMessage());
+                }
             }
         });
         findReservationButton.addActionListener(e -> {
