@@ -17,7 +17,7 @@ public class TheaterTest {
     public void setUp() throws Exception
     {
 
-        testTheater = new Theater("fourByFour", 4, 4);
+        testTheater = new Theater("fourByFour", 4, 5);
     }
 
     @After
@@ -149,7 +149,7 @@ public class TheaterTest {
     @Test
     public void testCopyConstructor() throws Exception
     {
-        Theater theater1 = new Theater("test", 4, 4);
+        Theater theater1 = new Theater("test", 4, 5);
         Theater theater2 = new Theater(theater1);
         assertEquals(theater1.getIdentifier(),theater2.getIdentifier());
         assertEquals(theater1.getNumberOfRows(),theater2.getNumberOfRows());
@@ -220,21 +220,20 @@ public class TheaterTest {
         }
     }
 
-    @Test
-    public void testFlipReservation() throws Exception
-    {
-
-    }
 
     @Test
     public void testGetNumberOFSeats() throws Exception
     {
-
+        int seats = 4;
+        Theater theater = new Theater("test", seats,5 );
+        assertEquals(theater.getNumberOFSeats(),seats);
     }
 
     @Test
     public void testGetNumberOfRows() throws Exception
     {
-
+        int rows = 4;
+        Theater theater = new Theater("test", 5,rows );
+        assertEquals(theater.getNumberOfRows(),rows);
     }
 }
