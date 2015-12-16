@@ -16,8 +16,6 @@ public class ShowInformation extends JComponent{
     public ShowInformation(MainView mainView)
     {
         this.mainView = mainView;
-        ArrayList<Show> shows= mainView.getShows();
-
     }
 
     public void drawShow(Show show, Graphics g,int x, int y)

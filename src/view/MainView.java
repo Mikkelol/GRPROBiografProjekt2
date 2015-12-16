@@ -35,13 +35,10 @@ public class MainView extends JFrame
         findReservationView = new FindReservationView(this);
         //setSize( 600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        //the first two times the ShowView initializes the view does not draw itself properly but changing to a different view twice seems to do the trick.
-        changeViewToShowView();
-        changeViewToFindReservationView();
-        changeViewToShowView();
-        changeViewToFindReservationView();
-        changeViewToShowView();
+        setContentPane(showView.getContentPane());
+        setSize(420,10+controller.getShows().size()*30);
+        setVisible(true);
+        repaint();
     }
 
     public void changeViewToShowView()
