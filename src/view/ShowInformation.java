@@ -48,7 +48,8 @@ public class ShowInformation extends JComponent{
         g.drawString( "Time", x + 170, y);
         g.drawString( "Theater", x + 220, y);
     }
-
+    /*draws the shows. A line with a date above followed by all shows on that date, a show is represented by its film,
+    * time, Theater and a pick show button*/
     public void drawShows(ArrayList<Show> shows,Graphics g)
     {
         int q = 0;

@@ -27,7 +27,9 @@ public class SeatMatrix extends JComponent {
         super.paint(g);
     }
 
-
+/* Method drawing the seatButtons in the reserve view. runs through every coordinate in the seat matrix of a Show's
+   Theater if the coordinate is reserved it will be drawn red if its unreserved it will be drawn green. If a seat is
+   in the ArrayList selected it will be drawn blue*/
     private void drawSeats(Theater theater)
     {
         removeAll();
@@ -61,6 +63,7 @@ public class SeatMatrix extends JComponent {
         }
     }
 
+    //Method for selecting and deselecting buttons.
     private void updateSelected(SeatButton seat)
     {
         if (seat.isSelected())
@@ -91,11 +94,14 @@ public class SeatMatrix extends JComponent {
         return selected;
     }
 
+    //regular change show method draws the theater for the show without any selection made.
     public void changeShow(Show show)
     {
         selected = new ArrayList<>();
         drawSeats(show.getTheater());
     }
+    /*changeShow method with a reservation adds a reservations seats to the selected array. Thereby making them selected
+    * buttons instead of reserved buttons.*/
     public void changeShow(Show show, Reservation r)
     {
         selected = new ArrayList<int[]>();
@@ -104,7 +110,7 @@ public class SeatMatrix extends JComponent {
         }
         drawSeats(show.getTheater());
     }
-
+// two custom made equality confirming methods. Sinces there was problems with .equals and Array.equals.
     public boolean compare(int[] a, int[] b)
     {
         if(a.length==b.length) {
