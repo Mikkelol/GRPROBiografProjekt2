@@ -20,17 +20,21 @@ public class Main {
         {
             JOptionPane.showMessageDialog(new JFrame(),e.getMessage());
             System.out.println(e.getStackTrace());
+            System.exit(0);
         }
         catch (SQLException e)
         {
             JOptionPane.showMessageDialog(new JFrame(),"Something went wrong with the database");
             System.out.println(e.getStackTrace());
+            System.exit(0);
         }
         catch (IllegalTimeAndDateFormatException e)
         {
             JOptionPane.showMessageDialog(new JFrame(),e.getMessage());
             System.out.println(e.getStackTrace());
+            System.exit(0);
         }
+
 
     }
 }
