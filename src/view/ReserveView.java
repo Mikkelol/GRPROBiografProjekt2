@@ -46,6 +46,8 @@ public class ReserveView extends JComponent {
         showNameJLabel.setText(show.getFilm());
         showTimeJLabel.setText(Integer.toString(show.getTime()));
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
+        nameField.setText(r.getCustomer().getName());
+        numberField.setText(r.getCustomer().getNumber());
         currentShow = show;
     }
 
