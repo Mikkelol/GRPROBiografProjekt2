@@ -78,7 +78,6 @@ public class MainView extends JFrame
     public void changeViewToFindReservationView(Customer customer)
     {
         findReservationView.resetTextFields();
-        //getReservationList(customer)
         findReservationView.changeReservationList(getReservationList(customer));
         setContentPane(findReservationView.getContentPane());
         pack();
@@ -126,9 +125,7 @@ public class MainView extends JFrame
             return null;
         }
     }
-    public Controller getController() {
-        return controller;
-    }
+
 
     public void removeReservation(Reservation reservation)
     {

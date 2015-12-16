@@ -82,17 +82,6 @@ public class Controller {
     }
 
 
-    /*method for reserving seats. The ArrayList of seats will be the seats selected by the clerk when she presses the reserve
-       button. */
-    private void notifyTheater(Theater theater, ArrayList<int[]> seats) {
-
-        for (int[] seat: seats) {
-
-            theater.flipReservation(seat[0], seat[1]);
-
-        }
-
-    }
 
     private void reserveSeats(Theater theater, ArrayList<int[]> seats) {
 
