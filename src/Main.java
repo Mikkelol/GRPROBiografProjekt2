@@ -1,11 +1,36 @@
 import controller.Controller;
+import exceptions.IllegalTimeAndDateFormatException;
+import exceptions.TheaterSizeException;
 import view.*;
+
+import javax.swing.*;
+import java.sql.SQLException;
+
 /**
  * Created by Olaleo on 01-12-2015.
  */
 public class Main {
     public static void main(String[] args)
     {
-        new MainView("Ticket reservation machine", new Controller());
+        try
+        {
+            new MainView("Ticket reservation machine", new Controller());
+        }
+        catch (TheaterSizeException e)
+        {
+            JOptionPane.showMessageDialog(new JFrame(),e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+        catch (SQLException e)
+        {
+            JOptionPane.showMessageDialog(new JFrame(),"Something went wrong with the database");
+            System.out.println(e.getStackTrace());
+        }
+        catch (IllegalTimeAndDateFormatException e)
+        {
+            JOptionPane.showMessageDialog(new JFrame(),e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+
     }
 }

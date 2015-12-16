@@ -28,7 +28,7 @@ public class Show {
 
         } else {
 
-            throw new IllegalTimeAndDateFormatException();
+            throw new IllegalTimeAndDateFormatException("Database corrupt: Error in the time and date format");
 
         }
 

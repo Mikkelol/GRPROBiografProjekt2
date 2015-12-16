@@ -2,8 +2,11 @@ package controller;
 
 import exceptions.CustomerException;
 import exceptions.IllegalArrayListException;
+import exceptions.IllegalTimeAndDateFormatException;
+import exceptions.TheaterSizeException;
 import model.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +20,7 @@ public class Controller {
 
 
 
-    public Controller(){
+    public Controller() throws TheaterSizeException, SQLException, IllegalTimeAndDateFormatException {
 
         this.reservations = new ArrayList<Reservation>();
         this.shows = Instanciator.createShowlist();

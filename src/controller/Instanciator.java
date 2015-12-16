@@ -1,14 +1,12 @@
 package controller;
 
+import exceptions.IllegalTimeAndDateFormatException;
 import exceptions.TheaterSizeException;
 
 import model.Show;
 import model.Theater;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,13 +29,12 @@ public final class Instanciator {
 
     //method that creates a hashmap of theater identifiers and theaters from the data in the "theaters" table in the
     //database
-    public static HashMap<String, Theater> createTheaterMap() {
+    public static HashMap<String, Theater> createTheaterMap() throws TheaterSizeException, SQLException  {
 
         Connection connection = null;
         Statement statement = null;
         HashMap<String, Theater> returnMap = new HashMap<String, Theater>();
 
-        try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver()); // STEP 2: Register JDBC driver
             connection = DriverManager.getConnection(DB_URL, USER, PASS); // STEP 3: Open a connection
             statement = connection.createStatement(); // STEP 4: Execute a query
@@ -54,23 +51,19 @@ public final class Instanciator {
                 if(seats>0 && rows>0) {
                     returnMap.put(identifier, new Theater(identifier, seats, rows));
                 }
-                else {throw new TheaterSizeException();}
+                else {throw new TheaterSizeException("Database corrupt: theater sizes are not positive");}
+
             }
 
             rs.close();
             connection.close();
-        } catch(TheaterSizeException e){
-            System.out.println("Database corrupt: theater sizes are not positive");
-        }
-        catch(Exception e) {
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        }
+
+
 
         return returnMap;
     }
     // creates a list of shows useing the data from the "shows" table in the database and the createTheaterMap method
-    public static ArrayList<Show> createShowlist() {
+    public static ArrayList<Show> createShowlist() throws TheaterSizeException, SQLException, IllegalTimeAndDateFormatException {
 
         Connection connection = null;
         Statement statement = null;
@@ -78,7 +71,7 @@ public final class Instanciator {
 
         HashMap<String, Theater> theaterMap = createTheaterMap();
 
-        try {
+
             DriverManager.registerDriver(new com.mysql.jdbc.Driver()); // STEP 2: Register JDBC driver
             connection = DriverManager.getConnection(DB_URL, USER, PASS); // STEP 3: Open a connection
             statement = connection.createStatement(); // STEP 4: Execute a query
@@ -99,10 +92,6 @@ public final class Instanciator {
             }
             rs.close();
             connection.close();
-        } catch(Exception e) {
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        }
 
         return returnArray;
     }
