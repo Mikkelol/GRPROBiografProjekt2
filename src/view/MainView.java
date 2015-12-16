@@ -33,12 +33,7 @@ public class MainView extends JFrame
         reserveView = new ReserveView(this);
         showView = new ShowView(this);
         findReservationView = new FindReservationView(this);
-        //setSize( 600, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //setContentPane(showView.getContentPane());
-        //setSize(420,10+controller.getShows().size()*30);
-        //setVisible(true);
-        //repaint();
         changeViewToShowView();
     }
 
