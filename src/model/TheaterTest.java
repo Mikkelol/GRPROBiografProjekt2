@@ -38,6 +38,7 @@ public class TheaterTest {
             fail();
         }
     }
+
     @Test
     public void testShouldThrowExceptionOnCorrectRowsAndIncorrectColumnsOfValueZero() throws Exception
     {
