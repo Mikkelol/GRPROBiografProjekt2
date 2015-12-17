@@ -21,7 +21,7 @@ public class ShowInformation extends JComponent{
     public void drawShow(Show show,int x, int y)
     {
         JLabel filmNameJLabel = new JLabel(show.getFilm());
-        filmNameJLabel.setSize(100,20);
+        filmNameJLabel.setSize(170,20);
         filmNameJLabel.setLocation(x,y);
         add(filmNameJLabel);
 

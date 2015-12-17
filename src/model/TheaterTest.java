@@ -35,9 +35,10 @@ public class TheaterTest {
         }
         catch (IllegalArgumentException e)
         {
-
+            fail();
         }
     }
+
     @Test
     public void testShouldThrowExceptionOnCorrectRowsAndIncorrectColumnsOfValueZero() throws Exception
     {

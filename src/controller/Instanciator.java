@@ -1,5 +1,6 @@
 package controller;
 
+import exceptions.IllegalArrayListException;
 import exceptions.IllegalTimeAndDateFormatException;
 import exceptions.TheaterSizeException;
 
@@ -29,7 +30,7 @@ public final class Instanciator {
 
     //method that creates a hashmap of theater identifiers and theaters from the data in the "theaters" table in the
     //database
-    public static HashMap<String, Theater> createTheaterMap() throws TheaterSizeException, SQLException  {
+    public static HashMap<String, Theater> createTheaterMap() throws TheaterSizeException, SQLException, IllegalTimeAndDateFormatException {
 
         Connection connection = null;
         Statement statement = null;

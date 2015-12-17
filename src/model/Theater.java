@@ -1,6 +1,6 @@
 package model;
 
-import java.util.IllegalFormatCodePointException;
+import exceptions.IllegalTimeAndDateFormatException;
 
 /**
  * Created by Tobias Scavenius on 29-11-2015.
@@ -16,7 +16,8 @@ public class Theater {
     private int numberOfSeats;
     private int numberOfRows;
 
-    public Theater(String identifier, int maxNumberOfColumns, int maxNumberOfRows) {
+    public Theater(String identifier, int maxNumberOfColumns, int maxNumberOfRows) throws IllegalTimeAndDateFormatException
+    {
 
         if (assertProperSize(maxNumberOfColumns, maxNumberOfRows)) {
 

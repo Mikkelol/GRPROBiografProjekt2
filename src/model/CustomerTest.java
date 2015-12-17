@@ -11,7 +11,6 @@ public class CustomerTest {
 
     @Test
     public void testThrowsExceptionOnIncorrectName() {
-
         try {
 
             Customer testCustomer1 = new Customer("1337 H4x0r","51785962");
@@ -20,7 +19,6 @@ public class CustomerTest {
         } catch (CustomerException e) {
 
         }
-
     }
 
 
@@ -32,10 +30,8 @@ public class CustomerTest {
             Customer testCustomer2 = new Customer("Emil Hansen","51 78 56 32");
 
         } catch (CustomerException e) {
-            //assertThat(e);
+            Assert.fail();
         }
-
-
     }
 
     @Test
@@ -62,7 +58,7 @@ public class CustomerTest {
             Customer testCustomer0 = new Customer("Emil Hansen","51785632");
 
         } catch (CustomerException e) {
-
+            Assert.fail();
         }
 
     }
