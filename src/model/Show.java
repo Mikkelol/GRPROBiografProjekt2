@@ -84,7 +84,15 @@ public class Show {
 
         String stringTime = String.valueOf(time);
 
-        if (time < 0 || !(stringTime.length() == 4)|| !(stringTime.matches("[0-2][0-9][0-5][0-9]"))) {
+        while(stringTime.length() < 4) {
+
+            stringTime = "0" + stringTime;
+
+        }
+
+        boolean correctTimeFormat = !(stringTime.matches("[0-1][0-9][0-5][0-9]") || stringTime.matches("2[0-4][0-5][0-9]"));
+
+        if (time < 0 || !(stringTime.length() == 4) || correctTimeFormat) {
 
             return false;
 

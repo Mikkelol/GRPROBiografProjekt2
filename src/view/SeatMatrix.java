@@ -62,7 +62,7 @@ public class SeatMatrix extends JComponent {
             }
         }
 
-        //This attempts to take screen size into account when creating the seatmatrix
+        //This attempts to take screen size into account when creating the seat matrix
         //screen size is slightly smaller in height due to task bar as this are screen sizes the doubles should not exceed the int limit and can thus be cast as int
 
         Dimension screenSize = new Dimension((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(), (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight() -30);
