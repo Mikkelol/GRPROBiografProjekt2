@@ -56,6 +56,11 @@ public class Show {
 
         String[] dateArray = date.replaceAll("\\s", "").split("-");
 
+        if (dateArray.length!=3)
+        {
+            return false;
+        }
+
         if (!(dateArray.length == 3) || !(dateArray[0].length() == 4)) {
 
             return false;
