@@ -11,7 +11,6 @@ public class CustomerTest {
 
     @Test
     public void testThrowsExceptionOnIncorrectName() {
-
         try {
 
             Customer testCustomer1 = new Customer("1337 H4x0r","51785962");
@@ -20,7 +19,6 @@ public class CustomerTest {
         } catch (CustomerException e) {
 
         }
-
     }
 
 
