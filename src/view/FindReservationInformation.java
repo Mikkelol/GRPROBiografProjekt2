@@ -94,7 +94,16 @@ public class FindReservationInformation extends JComponent{
         date.setSize(100,20);
         date.setLocation(450,y);
         add(date);
-        JLabel time = new JLabel(Integer.toString(reservation.getShow().getTime()));
+
+        String stringTime = String.valueOf(reservation.getShow().getTime());
+
+        while(stringTime.length() < 4) {
+
+            stringTime = "0" + stringTime;
+
+        }
+
+        JLabel time = new JLabel(stringTime);
         time.setSize(100,20);
         time.setLocation(560,y);
         add(time);
