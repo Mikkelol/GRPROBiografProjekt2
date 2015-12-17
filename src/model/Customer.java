@@ -43,7 +43,7 @@ public class Customer {
 
     private boolean assertIsNumber(String number) {
 
-        return !number.matches(".*[a-zA-z].*") && !number.matches("") && !number.startsWith("11") && (number.length() == 8);
+        return !number.matches(".*[a-zA-z].*") && !number.matches("") && (number.length() == 8);
 
     }
 
