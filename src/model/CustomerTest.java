@@ -32,7 +32,7 @@ public class CustomerTest {
             Customer testCustomer2 = new Customer("Emil Hansen","51 78 56 32");
 
         } catch (CustomerException e) {
-            //assertThat(e);
+            Assert.fail();
         }
 
 
@@ -62,7 +62,7 @@ public class CustomerTest {
             Customer testCustomer0 = new Customer("Emil Hansen","51785632");
 
         } catch (CustomerException e) {
-
+            Assert.fail();
         }
 
     }
