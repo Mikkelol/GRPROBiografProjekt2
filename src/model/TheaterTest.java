@@ -35,7 +35,7 @@ public class TheaterTest {
         }
         catch (IllegalArgumentException e)
         {
-
+            fail();
         }
     }
     @Test

@@ -21,7 +21,7 @@ public class ShowTest {
         }
         catch (IllegalTimeAndDateFormatException e)
         {
-
+            fail();
         }
     }
 
