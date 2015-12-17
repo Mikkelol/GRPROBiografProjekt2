@@ -100,7 +100,7 @@ public class ShowTest {
     {
         try
         {
-            new Show(new Theater("test",4,5),"testFilm", "2015-06-24", 2660);
+            new Show(new Theater("test",4,5),"testFilm", "2015-06-24", 2360);
             fail();
         }
         catch (IllegalTimeAndDateFormatException e)
