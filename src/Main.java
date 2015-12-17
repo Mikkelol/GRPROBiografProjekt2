@@ -14,7 +14,7 @@ public class Main {
     {
         try
         {
-            new MainView("Ticket reservation machine", new Controller());
+            new MainView("EasyBook", new Controller());
         }
         catch (TheaterSizeException e)
         {
