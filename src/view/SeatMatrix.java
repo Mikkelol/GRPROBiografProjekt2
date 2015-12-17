@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 12-12-2015.
+ * Class in charge of creating and drawing the matrix of seatbuttons appropriate for the chosen theater.
  */
 public class SeatMatrix extends JComponent {
 

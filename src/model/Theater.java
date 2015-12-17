@@ -64,9 +64,6 @@ public class Theater {
         return seats[column][row];
     }
     //main method of reserving or freeing up a seat
-    public void flipReservation(int column, int row) {
-        seats[column][row] = !seats[column][row];
-    }
 
     public int getNumberOFSeats() {return numberOfSeats;}
 

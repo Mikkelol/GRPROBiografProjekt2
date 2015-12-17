@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Olaleo on 01-12-2015.
+ * the Class in charge of switching between different views and communicating with the controller.
  */
 public class MainView extends JFrame
 {
@@ -92,7 +93,7 @@ public class MainView extends JFrame
     {
         return controller.getShows();
     }
-
+    //passes on the save method call to controller
     public void saveReservation (Show s, String name, String number,ArrayList<int[]> selectedSeats) throws CustomerException
     {
 
@@ -102,7 +103,7 @@ public class MainView extends JFrame
     }
 
 
-
+    // creates a customer so it can pass on the find reservation mothod call
     public Reservation findReservation(String name, String number, Show s) {
 
         try {
