@@ -37,7 +37,16 @@ public class ReserveView extends JComponent {
         nameField.setText("Name");
         numberField.setText("Number");
         showNameJLabel.setText(show.getFilm());
-        showTimeJLabel.setText(Integer.toString(show.getTime()));
+
+        String stringTime = String.valueOf(show.getTime());
+
+        while(stringTime.length() < 4) {
+
+            stringTime = "0" + stringTime;
+
+        }
+
+        showTimeJLabel.setText(stringTime);
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
         currentShow = show;
     }
@@ -45,7 +54,16 @@ public class ReserveView extends JComponent {
     public void changeShow(Show show, Reservation r) {
         seatMatrix1.changeShow(show, r);
         showNameJLabel.setText(show.getFilm());
-        showTimeJLabel.setText(Integer.toString(show.getTime()));
+
+        String stringTime = String.valueOf(show.getTime());
+
+        while(stringTime.length() < 4) {
+
+            stringTime = "0" + stringTime;
+
+        }
+
+        showTimeJLabel.setText(stringTime);
         showTheaterJLabel.setText(show.getTheater().getIdentifier());
         nameField.setText(r.getCustomer().getName());
         numberField.setText(r.getCustomer().getNumber());

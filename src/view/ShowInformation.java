@@ -24,7 +24,16 @@ public class ShowInformation extends JComponent{
         filmNameJLabel.setSize(170,20);
         filmNameJLabel.setLocation(x,y);
         add(filmNameJLabel);
-        JLabel filmTimeJLabel = new JLabel(Integer.toString(show.getTime()));
+
+        String stringTime = String.valueOf(show.getTime());
+
+        while(stringTime.length() < 4) {
+
+            stringTime = "0" + stringTime;
+
+        }
+
+        JLabel filmTimeJLabel = new JLabel(stringTime);
         filmTimeJLabel.setSize(100,20);
         filmTimeJLabel.setLocation(x+170,y);
         add(filmTimeJLabel);
