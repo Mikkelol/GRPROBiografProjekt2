@@ -34,8 +34,6 @@ public class CustomerTest {
         } catch (CustomerException e) {
             Assert.fail();
         }
-
-
     }
 
     @Test

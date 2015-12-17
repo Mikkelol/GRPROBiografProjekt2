@@ -107,12 +107,26 @@ public class ReservationTest {
     @Test
     public void testGetSeats() throws Exception
     {
-
+        int[] test = new int[]{0,0};
+        ArrayList<int[]> testList = new ArrayList<>();
+        testList.add(test);
+        Customer customer = new Customer("Jens Hansen","12345678");
+        Theater theater = new Theater("test",4,5);
+        Show show = new Show(theater,"testFilm","2015-06-12",1600);
+        Reservation reservation = new Reservation(show,customer,testList);
+        assertEquals(reservation.getSeats(), testList);
     }
 
     @Test
     public void testGetShow() throws Exception
     {
-
+        int[] test = new int[]{0,0};
+        ArrayList<int[]> testList = new ArrayList<>();
+        testList.add(test);
+        Customer customer = new Customer("Jens Hansen","12345678");
+        Theater theater = new Theater("test",4,5);
+        Show show = new Show(theater,"testFilm","2015-06-12",1600);
+        Reservation reservation = new Reservation(show,customer,testList);
+        assertEquals(reservation.getShow(), show);
     }
 }
