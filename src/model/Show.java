@@ -90,7 +90,7 @@ public class Show {
 
         }
 
-        boolean correctTimeFormat = !(stringTime.matches("[0-1][0-9][0-5][0-9]") || stringTime.matches("2[0-4][0-5][0-9]"));
+        boolean correctTimeFormat = !(stringTime.matches("[0-1][0-9][0-5][0-9]") || stringTime.matches("2[0-3][0-5][0-9]"));
 
         if (time < 0 || !(stringTime.length() == 4) || correctTimeFormat) {
 
