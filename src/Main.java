@@ -24,7 +24,7 @@ public class Main {
         }
         catch (SQLException e)
         {
-            JOptionPane.showMessageDialog(new JFrame(),"Something went wrong with the database, it might be problem with you your internetconnection");
+            JOptionPane.showMessageDialog(new JFrame(),"Something went wrong with the database, it might be problem with your internet connection");
             System.out.println(e.getStackTrace());
             System.exit(0);
         }
